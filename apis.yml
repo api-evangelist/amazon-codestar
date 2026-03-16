@@ -1,7 +1,7 @@
 aid: amazon-codestar
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/apis.yml
-name: AWS CodeStar API
+name: Amazon CodeStar
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 specificationVersion: '0.19'
