@@ -1,9 +1,16 @@
+aid: amazon-codestar
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/apis.yml
 name: AWS CodeStar API
-description: AWS CodeStar provides a unified user interface enabling you to easily manage your software development activities in one place. With AWS CodeStar, you can set up your entire continuous delivery toolchain in minutes, allowing you to start releasing code faster. AWS CodeStar makes it easy for your whole team to work together securely with built-in role-based policies.
-image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-url: https://aws.amazon.com/codestar/
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+specificationVersion: '0.19'
+description: >-
+  AWS CodeStar provides a unified user interface enabling you to easily manage
+  your software development activities in one place. With AWS CodeStar, you
+  can set up your entire continuous delivery toolchain in minutes.
 created: '2024-01-15'
-modified: '2026-03-13'
+modified: '2026-03-16'
 apis:
 - name: AWS CodeStar API
   description: >-
