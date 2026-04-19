@@ -1,0 +1,9 @@
+{
+  "name": "example-name",
+  "id": "id-abc123",
+  "description": "Example description for this resource.",
+  "clientRequestToken": "example-string",
+  "sourceCode": "example-string",
+  "toolchain": "example-string",
+  "tags": "example-string"
+}

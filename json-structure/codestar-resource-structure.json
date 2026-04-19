@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-resource-structure.json",
+  "name": "Resource",
+  "description": "Information about a resource for a project.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ResourceId"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the resource."
+        }
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

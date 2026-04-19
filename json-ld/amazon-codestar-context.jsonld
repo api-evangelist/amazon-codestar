@@ -1,0 +1,234 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "aws": "https://aws.amazon.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "S3Location": "aws:S3Location",
+    "DeleteProjectResult": "aws:DeleteProjectResult",
+    "ListProjectsRequest": "aws:ListProjectsRequest",
+    "ListResourcesResult": "aws:ListResourcesResult",
+    "Toolchain": "aws:Toolchain",
+    "CreateUserProfileResult": "aws:CreateUserProfileResult",
+    "GitHubCodeDestination": "aws:GitHubCodeDestination",
+    "DescribeUserProfileRequest": "aws:DescribeUserProfileRequest",
+    "TagProjectResult": "aws:TagProjectResult",
+    "CreateProjectResult": "aws:CreateProjectResult",
+    "AssociateTeamMemberRequest": "aws:AssociateTeamMemberRequest",
+    "UpdateTeamMemberResult": "aws:UpdateTeamMemberResult",
+    "Resource": "aws:Resource",
+    "DeleteProjectRequest": "aws:DeleteProjectRequest",
+    "DeleteUserProfileResult": "aws:DeleteUserProfileResult",
+    "CodeDestination": "aws:CodeDestination",
+    "DescribeUserProfileResult": "aws:DescribeUserProfileResult",
+    "TagProjectRequest": "aws:TagProjectRequest",
+    "DisassociateTeamMemberRequest": "aws:DisassociateTeamMemberRequest",
+    "UserProfileSummary": "aws:UserProfileSummary",
+    "DeleteUserProfileRequest": "aws:DeleteUserProfileRequest",
+    "DisassociateTeamMemberResult": "aws:DisassociateTeamMemberResult",
+    "UpdateUserProfileRequest": "aws:UpdateUserProfileRequest",
+    "DescribeProjectRequest": "aws:DescribeProjectRequest",
+    "ListTeamMembersRequest": "aws:ListTeamMembersRequest",
+    "ListProjectsResult": "aws:ListProjectsResult",
+    "UpdateTeamMemberRequest": "aws:UpdateTeamMemberRequest",
+    "CreateUserProfileRequest": "aws:CreateUserProfileRequest",
+    "TeamMember": "aws:TeamMember",
+    "ProjectStatus": "aws:ProjectStatus",
+    "ListResourcesRequest": "aws:ListResourcesRequest",
+    "UntagProjectRequest": "aws:UntagProjectRequest",
+    "ListUserProfilesRequest": "aws:ListUserProfilesRequest",
+    "ToolchainSource": "aws:ToolchainSource",
+    "CreateProjectRequest": "aws:CreateProjectRequest",
+    "UntagProjectResult": "aws:UntagProjectResult",
+    "AssociateTeamMemberResult": "aws:AssociateTeamMemberResult",
+    "ListTagsForProjectRequest": "aws:ListTagsForProjectRequest",
+    "Code": "aws:Code",
+    "TemplateParameterMap": "aws:TemplateParameterMap",
+    "ProjectSummary": "aws:ProjectSummary",
+    "ListTagsForProjectResult": "aws:ListTagsForProjectResult",
+    "UpdateProjectResult": "aws:UpdateProjectResult",
+    "ListUserProfilesResult": "aws:ListUserProfilesResult",
+    "Tags": "aws:Tags",
+    "UpdateProjectRequest": "aws:UpdateProjectRequest",
+    "CodeSource": "aws:CodeSource",
+    "ListTeamMembersResult": "aws:ListTeamMembersResult",
+    "DescribeProjectResult": "aws:DescribeProjectResult",
+    "CodeCommitCodeDestination": "aws:CodeCommitCodeDestination",
+    "UpdateUserProfileResult": "aws:UpdateUserProfileResult",
+    "bucketName": {
+      "@id": "aws:bucketName",
+      "@type": "xsd:string"
+    },
+    "bucketKey": {
+      "@id": "aws:bucketKey",
+      "@type": "xsd:string"
+    },
+    "stackId": {
+      "@id": "aws:stackId",
+      "@type": "xsd:string"
+    },
+    "projectArn": {
+      "@id": "aws:projectArn",
+      "@type": "xsd:string"
+    },
+    "nextToken": {
+      "@id": "aws:nextToken",
+      "@type": "xsd:string"
+    },
+    "maxResults": {
+      "@id": "aws:maxResults",
+      "@type": "xsd:string"
+    },
+    "resources": {
+      "@id": "aws:resources",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "aws:source",
+      "@type": "xsd:string"
+    },
+    "roleArn": {
+      "@id": "aws:roleArn",
+      "@type": "xsd:string"
+    },
+    "stackParameters": {
+      "@id": "aws:stackParameters",
+      "@type": "xsd:string"
+    },
+    "userArn": {
+      "@id": "aws:userArn",
+      "@type": "xsd:string"
+    },
+    "displayName": {
+      "@id": "aws:displayName",
+      "@type": "xsd:string"
+    },
+    "emailAddress": {
+      "@id": "aws:emailAddress",
+      "@type": "xsd:string"
+    },
+    "sshPublicKey": {
+      "@id": "aws:sshPublicKey",
+      "@type": "xsd:string"
+    },
+    "createdTimestamp": {
+      "@id": "aws:createdTimestamp",
+      "@type": "xsd:string"
+    },
+    "lastModifiedTimestamp": {
+      "@id": "aws:lastModifiedTimestamp",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "type": {
+      "@id": "aws:type",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "aws:owner",
+      "@type": "xsd:string"
+    },
+    "privateRepository": {
+      "@id": "aws:privateRepository",
+      "@type": "xsd:string"
+    },
+    "issuesEnabled": {
+      "@id": "aws:issuesEnabled",
+      "@type": "xsd:string"
+    },
+    "token": {
+      "@id": "aws:token",
+      "@type": "xsd:string"
+    },
+    "tags": {
+      "@id": "aws:tags",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "aws:id",
+      "@type": "xsd:string"
+    },
+    "arn": {
+      "@id": "aws:arn",
+      "@type": "xsd:string"
+    },
+    "clientRequestToken": {
+      "@id": "aws:clientRequestToken",
+      "@type": "xsd:string"
+    },
+    "projectTemplateId": {
+      "@id": "aws:projectTemplateId",
+      "@type": "xsd:string"
+    },
+    "projectId": {
+      "@id": "aws:projectId",
+      "@type": "xsd:string"
+    },
+    "projectRole": {
+      "@id": "aws:projectRole",
+      "@type": "xsd:string"
+    },
+    "remoteAccessAllowed": {
+      "@id": "aws:remoteAccessAllowed",
+      "@type": "xsd:string"
+    },
+    "deleteStack": {
+      "@id": "aws:deleteStack",
+      "@type": "xsd:string"
+    },
+    "codeCommit": {
+      "@id": "aws:codeCommit",
+      "@type": "xsd:string"
+    },
+    "gitHub": {
+      "@id": "aws:gitHub",
+      "@type": "xsd:string"
+    },
+    "projects": {
+      "@id": "aws:projects",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "aws:state",
+      "@type": "xsd:string"
+    },
+    "reason": {
+      "@id": "aws:reason",
+      "@type": "xsd:string"
+    },
+    "s3": {
+      "@id": "aws:s3",
+      "@type": "xsd:string"
+    },
+    "sourceCode": {
+      "@id": "aws:sourceCode",
+      "@type": "xsd:string"
+    },
+    "toolchain": {
+      "@id": "aws:toolchain",
+      "@type": "xsd:string"
+    },
+    "destination": {
+      "@id": "aws:destination",
+      "@type": "xsd:string"
+    },
+    "userProfiles": {
+      "@id": "aws:userProfiles",
+      "@type": "xsd:string"
+    },
+    "teamMembers": {
+      "@id": "aws:teamMembers",
+      "@type": "xsd:string"
+    },
+    "createdTimeStamp": {
+      "@id": "aws:createdTimeStamp",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "aws:status",
+      "@type": "xsd:string"
+    }
+  }
+}

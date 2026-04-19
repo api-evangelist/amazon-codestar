@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-delete-user-profile-request-structure.json",
+  "name": "DeleteUserProfileRequest",
+  "description": "DeleteUserProfileRequest schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "userArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UserArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar."
+        }
+      ]
+    }
+  },
+  "required": [
+    "userArn"
+  ]
+}

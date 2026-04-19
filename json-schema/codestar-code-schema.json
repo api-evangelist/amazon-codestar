@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-code-schema.json",
+  "title": "Code",
+  "description": "Location and destination information about the source code files provided with the project request. The source code is uploaded to the new project source repository after project creation.",
+  "type": "object",
+  "properties": {
+    "source": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CodeSource"
+        },
+        {
+          "description": "The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation."
+        }
+      ]
+    },
+    "destination": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CodeDestination"
+        },
+        {
+          "description": "The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository."
+        }
+      ]
+    }
+  },
+  "required": [
+    "source",
+    "destination"
+  ]
+}

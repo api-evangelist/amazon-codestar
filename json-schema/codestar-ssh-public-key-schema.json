@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-ssh-public-key-schema.json",
+  "title": "SshPublicKey",
+  "description": "SshPublicKey schema from AWS CodeStar API",
+  "type": "string",
+  "pattern": "^[\\t\\r\\n\\u0020-\\u00FF]*$",
+  "maxLength": 16384
+}

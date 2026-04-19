@@ -1,0 +1,11 @@
+{
+  "name": "example-name",
+  "id": "id-abc123",
+  "arn": "arn:aws:codestar:us-east-1:123456789012:project/my-project",
+  "description": "Example description for this resource.",
+  "clientRequestToken": "example-string",
+  "createdTimeStamp": "example-string",
+  "stackId": "id-abc123",
+  "projectTemplateId": "my-project",
+  "status": "active"
+}

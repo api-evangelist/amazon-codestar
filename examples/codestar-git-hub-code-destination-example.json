@@ -1,0 +1,9 @@
+{
+  "name": "example-name",
+  "description": "Example description for this resource.",
+  "type": "standard",
+  "owner": "example-string",
+  "privateRepository": "example-string",
+  "issuesEnabled": "example-string",
+  "token": "example-string"
+}

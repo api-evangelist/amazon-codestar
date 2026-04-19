@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-client-request-token-schema.json",
+  "title": "ClientRequestToken",
+  "description": "ClientRequestToken schema from AWS CodeStar API",
+  "type": "string",
+  "pattern": "^[\\w:/-]+$",
+  "minLength": 1,
+  "maxLength": 256
+}

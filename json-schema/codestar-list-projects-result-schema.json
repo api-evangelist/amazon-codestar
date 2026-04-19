@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-list-projects-result-schema.json",
+  "title": "ListProjectsResult",
+  "description": "ListProjectsResult schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "projects": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectsList"
+        },
+        {
+          "description": "A list of projects."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The continuation token to use when requesting the next set of results, if there are more results to be returned."
+        }
+      ]
+    }
+  },
+  "required": [
+    "projects"
+  ]
+}

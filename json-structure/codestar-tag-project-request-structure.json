@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-tag-project-request-structure.json",
+  "name": "TagProjectRequest",
+  "description": "TagProjectRequest schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectId"
+        },
+        {
+          "description": "The ID of the project you want to add a tag to."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Tags"
+        },
+        {
+          "description": "The tags you want to add to the project."
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "tags"
+  ]
+}

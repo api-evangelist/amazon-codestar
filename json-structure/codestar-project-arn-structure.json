@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-project-arn-structure.json",
+  "name": "ProjectArn",
+  "description": "ProjectArn schema from AWS CodeStar API",
+  "type": "string",
+  "pattern": "^arn:aws[^:\\s]*:codestar:[^:\\s]+:[0-9]{12}:project\\/[a-z]([a-z0-9|-])+$"
+}

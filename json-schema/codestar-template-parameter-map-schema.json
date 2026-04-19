@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-template-parameter-map-schema.json",
+  "title": "TemplateParameterMap",
+  "description": "TemplateParameterMap schema from AWS CodeStar API",
+  "type": "object",
+  "additionalProperties": {
+    "$ref": "#/components/schemas/TemplateParameterValue"
+  }
+}

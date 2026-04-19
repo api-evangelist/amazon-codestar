@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-project-id-structure.json",
+  "name": "ProjectId",
+  "description": "ProjectId schema from AWS CodeStar API",
+  "type": "string",
+  "pattern": "^[a-z][a-z0-9-]+$",
+  "minLength": 2,
+  "maxLength": 15
+}

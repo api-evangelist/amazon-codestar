@@ -8,25 +8,32 @@ specificationVersion: '0.19'
 description: >-
   AWS CodeStar provides a unified user interface enabling you to easily manage
   your software development activities in one place. With AWS CodeStar, you
-  can set up your entire continuous delivery toolchain in minutes.
+  can set up your entire continuous delivery toolchain in minutes, allowing
+  you to create and manage projects, add team members with role-based access
+  control, and integrate with other AWS developer tools including CodeCommit,
+  CodeBuild, CodeDeploy, and CodePipeline.
 created: '2024-01-15'
-modified: '2026-03-16'
+modified: '2026-04-19'
 apis:
   - name: AWS CodeStar API
     description: >-
       The AWS CodeStar API provides a unified interface for managing software
       development activities in one place. It enables you to quickly set up
-      continuous delivery toolchains, create and manage projects, add team members
-      with role-based access, and integrate with other AWS developer tools. The API
-      allows you to create projects from templates, manage project resources, and
-      coordinate team collaboration across your development workflow.
+      continuous delivery toolchains, create and manage projects, add team
+      members with role-based access, and integrate with other AWS developer
+      tools. The API allows you to create projects, manage project resources,
+      list and tag projects, and coordinate team collaboration across your
+      development workflow. Users can also maintain cross-project profiles
+      with display names, email addresses, and SSH public keys.
     image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
     humanURL: https://aws.amazon.com/codestar/
     baseURL: https://codestar.amazonaws.com
     tags:
       - AWS
-      - Development
+      - Developer Tools
       - DevOps
+      - Project Management
+      - Team Collaboration
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/codestar/
@@ -34,10 +41,16 @@ apis:
         url: openapi/amazon-codestar-openapi.yml
       - type: Pricing
         url: https://aws.amazon.com/codestar/pricing/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://aws.amazon.com/codestar/getting-started/
       - type: FAQ
         url: https://aws.amazon.com/codestar/faqs/
+      - type: JSONSchema
+        url: json-schema/codestar-openapi-project-schema.json
+      - type: JSONStructure
+        url: json-structure/codestar-openapi-project-structure.json
+      - type: JSON-LD
+        url: json-ld/amazon-codestar-context.jsonld
 common:
   - type: Portal
     url: https://aws.amazon.com/
@@ -45,29 +58,75 @@ common:
     url: https://aws.amazon.com/codestar/
   - type: Documentation
     url: https://docs.aws.amazon.com/codestar/
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://aws.amazon.com/service-terms/
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://aws.amazon.com/privacy/
   - type: Support
     url: https://aws.amazon.com/premiumsupport/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/aws
   - type: Console
     url: https://console.aws.amazon.com/codestar/
-  - type: Sign Up
+  - type: SignUp
     url: https://signin.aws.amazon.com/signup?request_type=register
   - type: Login
     url: https://aws.amazon.com/console/
-  - type: Status
+  - type: StatusPage
     url: https://health.aws.amazon.com/health/status
   - type: Contact
     url: https://aws.amazon.com/contact-us/
+  - type: SpectralRules
+    url: rules/amazon-codestar-spectral-rules.yml
+  - type: NaftikoCapability
+    url: capabilities/project-management.yaml
+  - type: Vocabulary
+    url: vocabulary/amazon-codestar-vocabulary.yaml
+  - type: Features
+    data:
+      - name: Project Creation from Templates
+        description: Create projects from pre-built templates that automatically provision AWS resources including CodeCommit repositories, CodeBuild build projects, and CodePipeline pipelines.
+      - name: Team Management with Role-Based Access
+        description: Add team members with Owner, Viewer, or Contributor roles, integrating directly with AWS IAM for secure access control.
+      - name: Integrated Developer Toolchain
+        description: Automatically connects CodeCommit, CodeBuild, CodeDeploy, and CodePipeline into a unified continuous delivery pipeline.
+      - name: Project Resource Dashboard
+        description: Unified dashboard to view and manage all AWS resources associated with a project.
+      - name: User Profile Management
+        description: Cross-project user profiles storing display names, email addresses, and SSH public keys.
+      - name: Project Tagging
+        description: Tag projects with key-value pairs for resource organization, cost allocation, and filtering.
+  - type: UseCases
+    data:
+      - name: CI/CD Pipeline Setup
+        description: Rapidly provision a complete continuous integration and delivery pipeline for application development teams.
+      - name: Team Onboarding
+        description: Quickly add new developers to project teams with appropriate role-based permissions across all project resources.
+      - name: Multi-Project Management
+        description: Manage multiple software development projects from a single interface with centralized team and resource visibility.
+      - name: Developer Collaboration
+        description: Enable distributed development teams to collaborate on AWS-hosted projects with shared toolchains and access controls.
+  - type: Integrations
+    data:
+      - name: AWS CodeCommit
+        description: Source control integration for hosting Git repositories within CodeStar projects.
+      - name: AWS CodeBuild
+        description: Build service integration for compiling source code and running tests in CodeStar projects.
+      - name: AWS CodeDeploy
+        description: Deployment automation integration for deploying applications to AWS resources.
+      - name: AWS CodePipeline
+        description: CI/CD orchestration integration for automating build, test, and deployment pipelines.
+      - name: AWS IAM
+        description: Identity and access management integration for team member authentication and authorization.
+      - name: AWS CloudFormation
+        description: Infrastructure provisioning integration for creating and managing project AWS resources.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
     url: https://apievangelist.com
 tags:
   - AWS
-  - Development
+  - Developer Tools
   - DevOps
+  - Project Management
+  - Team Collaboration

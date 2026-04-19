@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-list-resources-request-structure.json",
+  "name": "ListResourcesRequest",
+  "description": "ListResourcesRequest schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "projectId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectId"
+        },
+        {
+          "description": "The ID of the project."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The continuation token for the next set of results, if the results cannot be returned in one response."
+        }
+      ]
+    },
+    "maxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxResults"
+        },
+        {
+          "description": "The maximum amount of data that can be contained in a single set of results."
+        }
+      ]
+    }
+  },
+  "required": [
+    "projectId"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-team-member-schema.json",
+  "title": "TeamMember",
+  "description": "Information about a team member in a project.",
+  "type": "object",
+  "properties": {
+    "userArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UserArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the user in IAM."
+        }
+      ]
+    },
+    "projectRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Role"
+        },
+        {
+          "description": "The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href=\"http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html\">Working with Teams</a> in the <i>AWS CodeStar User Guide</i>. "
+        }
+      ]
+    },
+    "remoteAccessAllowed": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RemoteAccessAllowed"
+        },
+        {
+          "description": "Whether the user is allowed to remotely access project resources using an SSH public/private key pair."
+        }
+      ]
+    }
+  },
+  "required": [
+    "userArn",
+    "projectRole"
+  ]
+}

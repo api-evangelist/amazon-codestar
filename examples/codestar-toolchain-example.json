@@ -1,0 +1,5 @@
+{
+  "source": "example-string",
+  "roleArn": "arn:aws:codestar:us-east-1:123456789012:project/my-project",
+  "stackParameters": "example-string"
+}

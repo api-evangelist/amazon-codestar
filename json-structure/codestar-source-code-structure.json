@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-source-code-structure.json",
+  "name": "SourceCode",
+  "description": "SourceCode schema from AWS CodeStar API",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Code"
+  }
+}

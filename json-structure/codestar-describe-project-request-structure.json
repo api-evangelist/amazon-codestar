@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-describe-project-request-structure.json",
+  "name": "DescribeProjectRequest",
+  "description": "DescribeProjectRequest schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectId"
+        },
+        {
+          "description": "The ID of the project."
+        }
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

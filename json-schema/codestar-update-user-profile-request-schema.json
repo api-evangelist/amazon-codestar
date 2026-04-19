@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-update-user-profile-request-schema.json",
+  "title": "UpdateUserProfileRequest",
+  "description": "UpdateUserProfileRequest schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "userArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UserArn"
+        },
+        {
+          "description": "The name that will be displayed as the friendly name for the user in AWS CodeStar."
+        }
+      ]
+    },
+    "displayName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UserProfileDisplayName"
+        },
+        {
+          "description": "The name that is displayed as the friendly name for the user in AWS CodeStar."
+        }
+      ]
+    },
+    "emailAddress": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Email"
+        },
+        {
+          "description": "The email address that is displayed as part of the user's profile in AWS CodeStar."
+        }
+      ]
+    },
+    "sshPublicKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/SshPublicKey"
+        },
+        {
+          "description": "The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access."
+        }
+      ]
+    }
+  },
+  "required": [
+    "userArn"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "userArn": "arn:aws:codestar:us-east-1:123456789012:project/my-project",
+  "displayName": "example-name",
+  "emailAddress": "user@example.com",
+  "sshPublicKey": "example-string"
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-project-status-structure.json",
+  "name": "ProjectStatus",
+  "description": "An indication of whether a project creation or deletion is failed or successful.",
+  "type": "object",
+  "properties": {
+    "state": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/State"
+        },
+        {
+          "description": "The phase of completion for a project creation or deletion."
+        }
+      ]
+    },
+    "reason": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Reason"
+        },
+        {
+          "description": "In the case of a project creation or deletion failure, a reason for the failure."
+        }
+      ]
+    }
+  },
+  "required": [
+    "state"
+  ]
+}

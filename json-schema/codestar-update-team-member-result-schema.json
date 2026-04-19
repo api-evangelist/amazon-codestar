@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-update-team-member-result-schema.json",
+  "title": "UpdateTeamMemberResult",
+  "description": "UpdateTeamMemberResult schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "userArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UserArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the user whose team membership attributes were updated."
+        }
+      ]
+    },
+    "projectRole": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Role"
+        },
+        {
+          "description": "The project role granted to the user."
+        }
+      ]
+    },
+    "remoteAccessAllowed": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RemoteAccessAllowed"
+        },
+        {
+          "description": "Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-create-project-result-schema.json",
+  "title": "CreateProjectResult",
+  "description": "CreateProjectResult schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectId"
+        },
+        {
+          "description": "The ID of the project."
+        }
+      ]
+    },
+    "arn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the created project."
+        }
+      ]
+    },
+    "clientRequestToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientRequestToken"
+        },
+        {
+          "description": "A user- or system-generated token that identifies the entity that requested project creation."
+        }
+      ]
+    },
+    "projectTemplateId": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectTemplateId"
+        },
+        {
+          "description": "Reserved for future use."
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "arn"
+  ]
+}

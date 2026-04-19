@@ -1,0 +1,4 @@
+{
+  "projectId": "my-project",
+  "userArn": "arn:aws:codestar:us-east-1:123456789012:project/my-project"
+}

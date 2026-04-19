@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-role-arn-structure.json",
+  "name": "RoleArn",
+  "description": "RoleArn schema from AWS CodeStar API",
+  "type": "string",
+  "minLength": 1,
+  "maxLength": 1224
+}

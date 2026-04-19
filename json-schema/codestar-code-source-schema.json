@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-code-source-schema.json",
+  "title": "CodeSource",
+  "description": "The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.",
+  "type": "object",
+  "properties": {
+    "s3": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/S3Location"
+        },
+        {
+          "description": "Information about the Amazon S3 location where the source code files provided with the project request are stored. "
+        }
+      ]
+    }
+  },
+  "required": [
+    "s3"
+  ]
+}

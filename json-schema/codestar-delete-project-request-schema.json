@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-delete-project-request-schema.json",
+  "title": "DeleteProjectRequest",
+  "description": "DeleteProjectRequest schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectId"
+        },
+        {
+          "description": "The ID of the project to be deleted in AWS CodeStar."
+        }
+      ]
+    },
+    "clientRequestToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientRequestToken"
+        },
+        {
+          "description": "A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request. "
+        }
+      ]
+    },
+    "deleteStack": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeleteStack"
+        },
+        {
+          "description": "Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases."
+        }
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-code-commit-code-destination-structure.json",
+  "name": "CodeCommitCodeDestination",
+  "description": "Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RepositoryName"
+        },
+        {
+          "description": "The name of the AWS CodeCommit repository to be created in AWS CodeStar."
+        }
+      ]
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

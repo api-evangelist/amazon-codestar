@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-email-structure.json",
+  "name": "Email",
+  "description": "Email schema from AWS CodeStar API",
+  "type": "string",
+  "pattern": "^[\\w-.+]+@[\\w-.+]+$",
+  "minLength": 3,
+  "maxLength": 128,
+  "format": "password"
+}

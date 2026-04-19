@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-created-timestamp-schema.json",
+  "title": "CreatedTimestamp",
+  "description": "CreatedTimestamp schema from AWS CodeStar API",
+  "type": "string",
+  "format": "date-time"
+}

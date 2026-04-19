@@ -1,0 +1,210 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Amazon CodeStar"
+  description: "Vocabulary and taxonomy for the AWS CodeStar API covering project management, team collaboration, and user profile dimensions."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: AWS CodeStar API
+      namespace: codestar
+      version: "2017-04-19"
+      baseUrl: https://codestar.{region}.amazonaws.com
+      status: active
+
+  resources:
+    - name: projects
+      description: "Software development projects in AWS CodeStar."
+      api: codestar
+      actions:
+        - create
+        - describe
+        - list
+        - update
+        - delete
+        - tag
+        - untag
+
+    - name: team-members
+      description: "IAM users associated with a CodeStar project team."
+      api: codestar
+      actions:
+        - associate
+        - disassociate
+        - list
+        - update
+
+    - name: resources
+      description: "AWS resources associated with a CodeStar project."
+      api: codestar
+      actions:
+        - list
+
+    - name: user-profiles
+      description: "User profiles containing cross-project user preferences."
+      api: codestar
+      actions:
+        - create
+        - describe
+        - list
+        - update
+        - delete
+
+  actions:
+    - name: create
+      httpMethods: [POST]
+      pattern: write
+    - name: describe
+      httpMethods: [POST]
+      pattern: read
+    - name: list
+      httpMethods: [POST]
+      pattern: read
+    - name: update
+      httpMethods: [POST]
+      pattern: write
+    - name: delete
+      httpMethods: [POST]
+      pattern: destructive
+    - name: associate
+      httpMethods: [POST]
+      pattern: write
+    - name: disassociate
+      httpMethods: [POST]
+      pattern: destructive
+    - name: tag
+      httpMethods: [POST]
+      pattern: write
+    - name: untag
+      httpMethods: [POST]
+      pattern: write
+
+  schemas:
+    core:
+      - name: Project
+        description: "A CodeStar development project."
+        properties: [id, name, description, arn, clientRequestToken, createdTimeStamp, updatedTimeStamp, status]
+      - name: TeamMember
+        description: "An IAM user assigned to a project team with a role."
+        properties: [userArn, projectRole, remoteAccessAllowed]
+      - name: UserProfile
+        description: "A user profile for cross-project preferences."
+        properties: [userArn, displayName, emailAddress, sshPublicKey]
+      - name: Resource
+        description: "An AWS resource associated with a CodeStar project."
+        properties: [id]
+
+  parameters:
+    pagination:
+      - nextToken
+      - maxResults
+    identifiers:
+      - projectId
+      - userArn
+      - id
+    filters: []
+
+  enums:
+    roles:
+      - Owner
+      - Viewer
+      - Contributor
+    project_status:
+      - CreateInProgress
+      - CreateComplete
+      - CreateFailed
+      - DeleteInProgress
+      - DeleteFailed
+      - DeleteComplete
+
+  authentication:
+    schemes:
+      - type: AWS SigV4
+        headers: [X-Amz-Date, X-Amz-Algorithm, X-Amz-Credential, X-Amz-Signature, X-Amz-SignedHeaders]
+
+capability:
+  workflows:
+    - name: Project Management
+      file: capabilities/project-management.yaml
+      description: "Create and manage CodeStar projects, team members, and user profiles."
+      apis: [codestar]
+      toolCount: 12
+      personas:
+        - Development Team Lead
+        - Platform Administrator
+
+  personas:
+    - id: dev-team-lead
+      name: Development Team Lead
+      description: "Creates and manages CodeStar projects and team membership."
+      workflows: [project-management]
+    - id: platform-admin
+      name: Platform Administrator
+      description: "Manages user profiles and project-level access controls."
+      workflows: [project-management]
+
+  domains:
+    - name: Project Management
+      resources: [projects, resources]
+      workflows: [project-management]
+    - name: Team Collaboration
+      resources: [team-members]
+      workflows: [project-management]
+    - name: User Management
+      resources: [user-profiles]
+      workflows: [project-management]
+
+  namespaces:
+    - name: codestar
+      type: consumed
+      baseUri: https://codestar.{region}.amazonaws.com
+    - name: project-management-api
+      type: rest-exposed
+      port: 8080
+    - name: project-management-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: AWS_ACCESS_KEY_ID
+      workflows: [project-management]
+    - name: AWS_SECRET_ACCESS_KEY
+      workflows: [project-management]
+    - name: AWS_REGION
+      workflows: [project-management]
+
+crossReference:
+  - resource: projects
+    operations:
+      - CreateProject
+      - DescribeProject
+      - ListProjects
+      - UpdateProject
+      - DeleteProject
+      - TagProject
+      - UntagProject
+      - ListTagsForProject
+      - ListResources
+    workflows: [project-management]
+    personas: [dev-team-lead, platform-admin]
+
+  - resource: team-members
+    operations:
+      - AssociateTeamMember
+      - DisassociateTeamMember
+      - ListTeamMembers
+      - UpdateTeamMember
+    workflows: [project-management]
+    personas: [dev-team-lead, platform-admin]
+
+  - resource: user-profiles
+    operations:
+      - CreateUserProfile
+      - DescribeUserProfile
+      - ListUserProfiles
+      - UpdateUserProfile
+      - DeleteUserProfile
+    workflows: [project-management]
+    personas: [platform-admin]

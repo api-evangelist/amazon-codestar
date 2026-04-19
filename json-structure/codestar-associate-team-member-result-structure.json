@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-associate-team-member-result-structure.json",
+  "name": "AssociateTeamMemberResult",
+  "description": "AssociateTeamMemberResult schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "clientRequestToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ClientRequestToken"
+        },
+        {
+          "description": "The user- or system-generated token from the initial request that can be used to repeat the request."
+        }
+      ]
+    }
+  }
+}

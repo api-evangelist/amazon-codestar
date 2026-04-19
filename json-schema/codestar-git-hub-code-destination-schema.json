@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-git-hub-code-destination-schema.json",
+  "title": "GitHubCodeDestination",
+  "description": "Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RepositoryName"
+        },
+        {
+          "description": "Name of the GitHub repository to be created in AWS CodeStar."
+        }
+      ]
+    },
+    "description": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RepositoryDescription"
+        },
+        {
+          "description": "Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created."
+        }
+      ]
+    },
+    "type": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RepositoryType"
+        },
+        {
+          "description": "The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization."
+        }
+      ]
+    },
+    "owner": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RepositoryOwner"
+        },
+        {
+          "description": "The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name."
+        }
+      ]
+    },
+    "privateRepository": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RepositoryIsPrivate"
+        },
+        {
+          "description": "Whether the GitHub repository is to be a private repository."
+        }
+      ]
+    },
+    "issuesEnabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RepositoryEnableIssues"
+        },
+        {
+          "description": "Whether to enable issues for the GitHub repository."
+        }
+      ]
+    },
+    "token": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/GitHubPersonalToken"
+        },
+        {
+          "description": "The GitHub user's personal access token for the GitHub repository."
+        }
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "type",
+    "owner",
+    "privateRepository",
+    "issuesEnabled",
+    "token"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-list-user-profiles-result-schema.json",
+  "title": "ListUserProfilesResult",
+  "description": "ListUserProfilesResult schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "userProfiles": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/UserProfilesList"
+        },
+        {
+          "description": "All the user profiles configured in AWS CodeStar for an AWS account."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The continuation token to use when requesting the next set of results, if there are more results to be returned."
+        }
+      ]
+    }
+  },
+  "required": [
+    "userProfiles"
+  ]
+}

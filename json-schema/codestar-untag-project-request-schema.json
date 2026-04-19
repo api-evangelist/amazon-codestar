@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-schema/codestar-untag-project-request-schema.json",
+  "title": "UntagProjectRequest",
+  "description": "UntagProjectRequest schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ProjectId"
+        },
+        {
+          "description": "The ID of the project to remove tags from."
+        }
+      ]
+    },
+    "tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TagKeys"
+        },
+        {
+          "description": "The tags to remove from the project."
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "tags"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-list-team-members-result-structure.json",
+  "name": "ListTeamMembersResult",
+  "description": "ListTeamMembersResult schema from AWS CodeStar API",
+  "type": "object",
+  "properties": {
+    "teamMembers": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TeamMemberResult"
+        },
+        {
+          "description": "A list of team member objects for the project."
+        }
+      ]
+    },
+    "nextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PaginationToken"
+        },
+        {
+          "description": "The continuation token to use when requesting the next set of results, if there are more results to be returned."
+        }
+      ]
+    }
+  },
+  "required": [
+    "teamMembers"
+  ]
+}

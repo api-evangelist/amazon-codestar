@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/json-structure/codestar-tag-key-structure.json",
+  "name": "TagKey",
+  "description": "TagKey schema from AWS CodeStar API",
+  "type": "string",
+  "pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$",
+  "minLength": 1,
+  "maxLength": 128
+}
