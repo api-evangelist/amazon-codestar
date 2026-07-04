@@ -1,0 +1,50 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  AWS SDK service clients that include the CodeStar (codestar-2017-04-19) API,
+  verified against public package registries.
+notes: >-
+  AWS CodeStar has no standalone client library. Access is provided through the
+  first-party AWS SDKs and the AWS CLI, each of which ships a CodeStar client
+  generated from the same service model as openapi/amazon-codestar-openapi.yml.
+  All packages below are published by Amazon Web Services and are therefore
+  official. The AWS CodeStar console was discontinued on 2024-07-31; the SDK
+  clients may still be present but the service no longer accepts new projects.
+packages:
+  - language: javascript
+    registry: npm
+    name: "@aws-sdk/client-codestar"
+    url: https://www.npmjs.com/package/@aws-sdk/client-codestar
+    install: npm install @aws-sdk/client-codestar
+    official: true
+  - language: python
+    registry: pypi
+    name: boto3
+    url: https://pypi.org/project/boto3/
+    install: pip install boto3
+    official: true
+    notes: CodeStar client exposed via boto3.client('codestar')
+  - language: java
+    registry: maven
+    name: software.amazon.awssdk:codestar
+    url: https://repo1.maven.org/maven2/software/amazon/awssdk/codestar/
+    install: "implementation 'software.amazon.awssdk:codestar'"
+    official: true
+  - language: dotnet
+    registry: nuget
+    name: AWSSDK.CodeStar
+    url: https://www.nuget.org/packages/AWSSDK.CodeStar
+    install: dotnet add package AWSSDK.CodeStar
+    official: true
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/aws/aws-sdk-go-v2/service/codestar
+    url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/codestar
+    install: go get github.com/aws/aws-sdk-go-v2/service/codestar
+    official: true
+  - language: ruby
+    registry: rubygems
+    name: aws-sdk-codestar
+    url: https://rubygems.org/gems/aws-sdk-codestar
+    install: gem install aws-sdk-codestar
+    official: true

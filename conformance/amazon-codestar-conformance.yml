@@ -1,0 +1,49 @@
+generated: '2026-06-20'
+method: derived
+source: >-
+  Derived from openapi/amazon-codestar-openapi.yml (auth model, error media
+  types, response codes) and AWS documentation for the CodeStar JSON protocol.
+standards:
+  - id: aws-sigv4
+    conforms: true
+    evidence: >-
+      Requests use the X-Amz-* signing parameters/headers (X-Amz-Credential,
+      X-Amz-Date, X-Amz-Signature, X-Amz-SignedHeaders) — AWS Signature
+      Version 4.
+  - id: aws-json-1.1
+    conforms: true
+    evidence: >-
+      RPC-style POST with X-Amz-Target header (CodeStar_20170419.<Operation>)
+      and application/json bodies — the AWS JSON 1.1 protocol.
+  - id: oauth2
+    conforms: false
+    evidence: No OAuth2 security scheme; authentication is AWS SigV4.
+  - id: openid-connect
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: >-
+      Error responses use application/json with AWS exception shapes and
+      non-standard status codes (480-486), not application/problem+json.
+  - id: json-api
+    conforms: false
+  - id: odata
+    conforms: false
+  - id: fhir-r4
+    conforms: false
+  - id: fapi
+    conforms: false
+  - id: scim2
+    conforms: false
+  - id: psd2
+    conforms: false
+  - id: pagination
+    conforms: true
+    evidence: >-
+      List operations accept maxResults and nextToken and return nextToken
+      (AWS token-based pagination).
+  - id: idempotency
+    conforms: true
+    evidence: >-
+      CreateProject, DeleteProject, and AssociateTeamMember accept a
+      clientRequestToken for idempotent requests.

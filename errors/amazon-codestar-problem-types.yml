@@ -1,0 +1,124 @@
+generated: '2026-06-20'
+method: derived
+format: aws-json
+source: >-
+  Derived from the error responses in openapi/amazon-codestar-openapi.yml. AWS
+  CodeStar does not use RFC 9457 problem+json; it returns application/json with
+  AWS exception shapes. The OpenAPI conversion maps each exception to a
+  non-standard HTTP status in the 480-486 range (the true AWS wire status is
+  400 with an __type discriminator). Titles/descriptions are taken from the
+  OpenAPI response descriptions and schema descriptions.
+problems:
+  - name: ValidationException
+    http_status_in_spec: 481
+    title: The specified input is not valid.
+    seen_in:
+      - CreateProject
+      - DeleteProject
+      - DescribeProject
+      - ListProjects
+      - UpdateProject
+      - AssociateTeamMember
+      - DisassociateTeamMember
+      - UpdateTeamMember
+      - CreateUserProfile
+      - DeleteUserProfile
+      - DescribeUserProfile
+      - ListUserProfiles
+      - TagProject
+      - UntagProject
+      - ListResources
+      - ListTagsForProject
+      - ListTeamMembers
+  - name: ProjectNotFoundException
+    http_status_in_spec: 480
+    title: The specified AWS CodeStar project was not found.
+    seen_in:
+      - DescribeProject
+      - UpdateProject
+      - AssociateTeamMember
+      - DisassociateTeamMember
+      - UpdateTeamMember
+      - ListResources
+      - ListTagsForProject
+      - ListTeamMembers
+      - TagProject
+      - UntagProject
+  - name: ProjectAlreadyExistsException
+    http_status_in_spec: 480
+    title: An AWS CodeStar project with the same ID already exists in this region for the AWS account.
+    seen_in:
+      - CreateProject
+  - name: ProjectCreationFailedException
+    http_status_in_spec: 483
+    title: The project creation request was valid, but project creation failed.
+    seen_in:
+      - CreateProject
+  - name: ProjectConfigurationException
+    http_status_in_spec: 485
+    title: Project configuration information is required but not specified.
+    seen_in:
+      - CreateProject
+      - DescribeProject
+      - AssociateTeamMember
+      - UpdateTeamMember
+  - name: LimitExceededException
+    http_status_in_spec: 480
+    title: A resource limit has been exceeded.
+    seen_in:
+      - CreateProject
+      - AssociateTeamMember
+      - UpdateTeamMember
+      - TagProject
+      - UntagProject
+  - name: InvalidServiceRoleException
+    http_status_in_spec: 482
+    title: The service role is not valid.
+    seen_in:
+      - CreateProject
+      - DeleteProject
+      - DescribeProject
+      - AssociateTeamMember
+      - DisassociateTeamMember
+      - UpdateTeamMember
+  - name: ConcurrentModificationException
+    http_status_in_spec: 480
+    title: Another modification is being made concurrently; the request could not complete.
+    seen_in:
+      - CreateProject
+      - DeleteProject
+      - DescribeProject
+      - AssociateTeamMember
+      - DisassociateTeamMember
+      - UpdateTeamMember
+      - TagProject
+      - UntagProject
+  - name: TeamMemberAlreadyAssociatedException
+    http_status_in_spec: 482
+    title: The team member is already associated with a role in this project.
+    seen_in:
+      - AssociateTeamMember
+  - name: TeamMemberNotFoundException
+    http_status_in_spec: 486
+    title: The team member specified was not found.
+    seen_in:
+      - UpdateTeamMember
+  - name: UserProfileAlreadyExistsException
+    http_status_in_spec: 480
+    title: A user profile with that name already exists in this region for the AWS account.
+    seen_in:
+      - CreateUserProfile
+  - name: UserProfileNotFoundException
+    http_status_in_spec: 480
+    title: The user profile was not found.
+    seen_in:
+      - DescribeUserProfile
+  - name: InvalidNextTokenException
+    http_status_in_spec: 480
+    title: The next token is not valid.
+    seen_in:
+      - ListProjects
+      - ListResources
+      - ListTagsForProject
+      - ListTeamMembers
+      - ListUserProfiles

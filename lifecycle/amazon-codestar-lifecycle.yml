@@ -1,0 +1,34 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  AWS CodeStar discontinuation notice and FAQ (aws.amazon.com/codestar),
+  corroborated by community trackers. Versioning derived from the API service
+  date in openapi/amazon-codestar-openapi.yml.
+status: discontinued
+discontinuation:
+  announced: '2024'
+  effective: '2024-07-31'
+  detail: >-
+    On 2024-07-31 AWS discontinued the ability to create and view AWS CodeStar
+    projects and access the CodeStar console. AWS resources previously created
+    by CodeStar (source repos, pipelines, builds) and AWS CodeStar connections
+    are not affected by this change.
+  successor: Amazon CodeCatalyst
+  successor_url: https://aws.amazon.com/codecatalyst/
+versioning:
+  scheme: service-date
+  current: '2017-04-19'
+  docs: https://docs.aws.amazon.com/codestar/
+  note: >-
+    AWS APIs are versioned by service date embedded in the X-Amz-Target header
+    (CodeStar_20170419.<Operation>); there is no separate v2.
+deprecation:
+  policy_url: https://aws.amazon.com/codestar/faqs/
+  sunset_header: false
+  deprecation_header: false
+sla:
+  url: null
+  uptime_target: null
+  note: CodeStar had no additional charge and no standalone SLA; it relied on the underlying AWS services.
+status_page: https://health.aws.amazon.com/health/status
+deprecated_operations: []

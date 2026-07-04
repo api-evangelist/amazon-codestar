@@ -1,0 +1,32 @@
+generated: '2026-06-20'
+method: searched
+source: Probed /.well-known/ on the API base host and the provider website host.
+hosts:
+  - host: https://codestar.us-east-1.amazonaws.com
+    note: >-
+      Regional AWS API endpoint (from OpenAPI servers[]). Rejects unsigned
+      connections (SigV4 required); all /.well-known/ probes returned no
+      response (connection refused / status 000).
+    documents:
+      - path: /.well-known/security.txt
+        status: 000
+      - path: /.well-known/openid-configuration
+        status: 000
+      - path: /.well-known/oauth-authorization-server
+        status: 000
+      - path: /.well-known/api-catalog
+        status: 000
+      - path: /.well-known/ai-plugin.json
+        status: 000
+  - host: https://aws.amazon.com
+    note: Provider website / portal host (common Website + Portal).
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        file: amazon-codestar-security.txt
+      - path: /.well-known/openid-configuration
+        status: 301
+      - path: /.well-known/api-catalog
+        status: 301
+      - path: /.well-known/ai-plugin.json
+        status: 301

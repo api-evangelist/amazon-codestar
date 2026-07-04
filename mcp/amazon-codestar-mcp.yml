@@ -1,0 +1,67 @@
+generated: '2026-06-20'
+method: derived
+status: candidate
+source: >-
+  Derived one candidate tool per operationId in
+  openapi/amazon-codestar-openapi.yml. No official AWS CodeStar MCP server was
+  found; AWS publishes MCP servers for other services but none for CodeStar,
+  which was discontinued on 2024-07-31.
+server:
+  name: amazon-codestar
+  transport: http
+  url: null
+tools:
+  - name: associate_team_member
+    description: Adds an IAM user to the team for an AWS CodeStar project.
+    source_operation: openapi/amazon-codestar-openapi.yml#AssociateTeamMember
+  - name: create_project
+    description: Creates a project, including project resources, from a submitted project request.
+    source_operation: openapi/amazon-codestar-openapi.yml#CreateProject
+  - name: create_user_profile
+    description: Creates a user profile with display name and email address, not project-specific.
+    source_operation: openapi/amazon-codestar-openapi.yml#CreateUserProfile
+  - name: delete_project
+    description: Deletes a project, including project resources.
+    source_operation: openapi/amazon-codestar-openapi.yml#DeleteProject
+  - name: delete_user_profile
+    description: Deletes a user profile and all associated personal preference data.
+    source_operation: openapi/amazon-codestar-openapi.yml#DeleteUserProfile
+  - name: describe_project
+    description: Describes a project and its resources.
+    source_operation: openapi/amazon-codestar-openapi.yml#DescribeProject
+  - name: describe_user_profile
+    description: Describes a user and their attributes across all projects.
+    source_operation: openapi/amazon-codestar-openapi.yml#DescribeUserProfile
+  - name: disassociate_team_member
+    description: Removes a user from a project and the related IAM access policies.
+    source_operation: openapi/amazon-codestar-openapi.yml#DisassociateTeamMember
+  - name: list_projects
+    description: Lists all projects associated with your AWS account.
+    source_operation: openapi/amazon-codestar-openapi.yml#ListProjects
+  - name: list_resources
+    description: Lists resources associated with a project.
+    source_operation: openapi/amazon-codestar-openapi.yml#ListResources
+  - name: list_tags_for_project
+    description: Gets the tags for a project.
+    source_operation: openapi/amazon-codestar-openapi.yml#ListTagsForProject
+  - name: list_team_members
+    description: Lists all team members associated with a project.
+    source_operation: openapi/amazon-codestar-openapi.yml#ListTeamMembers
+  - name: list_user_profiles
+    description: Lists all user profiles configured for your AWS account.
+    source_operation: openapi/amazon-codestar-openapi.yml#ListUserProfiles
+  - name: tag_project
+    description: Adds tags to a project.
+    source_operation: openapi/amazon-codestar-openapi.yml#TagProject
+  - name: untag_project
+    description: Removes tags from a project.
+    source_operation: openapi/amazon-codestar-openapi.yml#UntagProject
+  - name: update_project
+    description: Updates the attributes of a project.
+    source_operation: openapi/amazon-codestar-openapi.yml#UpdateProject
+  - name: update_team_member
+    description: Updates a team member's role or remote-access attributes in a project.
+    source_operation: openapi/amazon-codestar-openapi.yml#UpdateTeamMember
+  - name: update_user_profile
+    description: Updates the profile for a user.
+    source_operation: openapi/amazon-codestar-openapi.yml#UpdateUserProfile

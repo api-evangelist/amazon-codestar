@@ -1,0 +1,32 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for AWS CodeStar
+  version: 1.0.0
+extends: openapi/amazon-codestar-openapi.yml
+x-provenance:
+  generated: '2026-06-20'
+  method: generated
+  source: >-
+    Enhancements captured by API Evangelist during enrichment; does not mutate
+    the harvested OpenAPI. Apply with an Overlay 1.0.0 processor.
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-slug: amazon-codestar
+      x-apievangelist-provider: Amazon Web Services
+      x-lifecycle-status: discontinued
+      x-lifecycle-discontinued: '2024-07-31'
+      x-lifecycle-successor: Amazon CodeCatalyst
+  - target: $.info
+    update:
+      x-apievangelist-tags:
+        - AWS
+        - Developer Tools
+        - DevOps
+        - Project Management
+        - Team Collaboration
+  - target: $.externalDocs
+    update:
+      x-apievangelist-note: >-
+        CodeStar service documentation was largely removed after the 2024-07-31
+        discontinuation; links may resolve to redirects or archived pages.
