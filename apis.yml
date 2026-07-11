@@ -66,6 +66,14 @@ apis:
       - type: Lifecycle
         url: lifecycle/amazon-codestar-lifecycle.yml
 common:
+  - type: TrustCenter
+    url: security/amazon-codestar-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-codestar-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-codestar-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-codestar-authentication.yml
   - type: Portal
     url: https://aws.amazon.com/
   - type: Website
