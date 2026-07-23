@@ -1,0 +1,586 @@
+openapi: 3.0.0
+info:
+  version: '2017-04-19'
+  x-release: v4
+  title: 'AWS CodeStar #X Amz Target=CodeStar 20170419.AssociateTeamMember #X Amz Target=CodeStar 20170419.AssociateTeamMember #X Amz Target=CodeStar 20170419.CreateProject API'
+  description: <fullname>AWS CodeStar</fullname> <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data types for the AWS CodeStar API along with usage examples.</p> <p>You can use the AWS CodeStar API to work with:</p> <p>Projects and their resources, by calling the following:</p> <ul> <li> <p> <code>DeleteProject</code>, which deletes a project.</p> </li> <li> <p> <code>DescribeProject</code>, which lists the attributes of a project.</p> </li> <li> <p> <code>ListProjects</code>, which lists all projects associated with your AWS account.</p> </li> <li> <p> <code>ListResources</code>, which lists the resources associated with a project.</p> </li> <li> <p> <code>ListTagsForProject</code>, which lists the tags associated with a project.</p> </li> <li> <p> <code>TagProject</code>, which adds tags to a project.</p> </li> <li> <p> <code>UntagProject</code>, which removes tags from a project.</p> </li> <li> <p> <code>UpdateProject</code>, which updates the attributes of a project.</p> </li> </ul> <p>Teams and team members, by calling the following:</p> <ul> <li> <p> <code>AssociateTeamMember</code>, which adds an IAM user to the team for a project.</p> </li> <li> <p> <code>DisassociateTeamMember</code>, which removes an IAM user from the team for a project.</p> </li> <li> <p> <code>ListTeamMembers</code>, which lists all the IAM users in the team for a project, including their roles and attributes.</p> </li> <li> <p> <code>UpdateTeamMember</code>, which updates a team member's attributes in a project.</p> </li> </ul> <p>Users, by calling the following:</p> <ul> <li> <p> <code>CreateUserProfile</code>, which creates a user profile that contains data associated with the user across all projects.</p> </li> <li> <p> <code>DeleteUserProfile</code>, which deletes all user profile information across all projects.</p> </li> <li> <p> <code>DescribeUserProfile</code>, which describes the profile of a user.</p> </li> <li> <p> <code>ListUserProfiles</code>, which lists all user profiles.</p> </li> <li> <p> <code>UpdateUserProfile</code>, which updates the profile for a user.</p> </li> </ul>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: codestar
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/codestar-2017-04-19.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://codestar.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The CodeStar multi-region endpoint
+- url: https://codestar.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The CodeStar multi-region endpoint
+- url: http://codestar.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The CodeStar endpoint for China (Beijing) and China (Ningxia)
+- url: https://codestar.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The CodeStar endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=CodeStar 20170419.CreateProject'
+paths:
+  /#X-Amz-Target=CodeStar_20170419.CreateProject:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: CreateProject
+      description: Creates a project, including project resources. This action creates a project based on a submitted project request. A set of source code files and a toolchain template file can be included with the project request. If these are not provided, an empty project is created.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateProjectResult'
+              examples:
+                CreateProject200Example:
+                  summary: Default CreateProject 200 response
+                  x-microcks-default: true
+                  value:
+                    id: example
+                    arn: example
+                    clientRequestToken: example
+                    projectTemplateId: example
+        '480':
+          description: ProjectAlreadyExistsException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectAlreadyExistsException'
+              examples:
+                CreateProject480Example:
+                  summary: Default CreateProject 480 response
+                  x-microcks-default: true
+                  value: example
+        '481':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+              examples:
+                CreateProject481Example:
+                  summary: Default CreateProject 481 response
+                  x-microcks-default: true
+                  value: example
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                CreateProject482Example:
+                  summary: Default CreateProject 482 response
+                  x-microcks-default: true
+                  value: example
+        '483':
+          description: ProjectCreationFailedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectCreationFailedException'
+              examples:
+                CreateProject483Example:
+                  summary: Default CreateProject 483 response
+                  x-microcks-default: true
+                  value: example
+        '484':
+          description: InvalidServiceRoleException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidServiceRoleException'
+              examples:
+                CreateProject484Example:
+                  summary: Default CreateProject 484 response
+                  x-microcks-default: true
+                  value: example
+        '485':
+          description: ProjectConfigurationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectConfigurationException'
+              examples:
+                CreateProject485Example:
+                  summary: Default CreateProject 485 response
+                  x-microcks-default: true
+                  value: example
+        '486':
+          description: ConcurrentModificationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConcurrentModificationException'
+              examples:
+                CreateProject486Example:
+                  summary: Default CreateProject 486 response
+                  x-microcks-default: true
+                  value: example
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProjectRequest'
+            examples:
+              CreateProjectRequestExample:
+                summary: Default CreateProject request
+                x-microcks-default: true
+                value:
+                  name: example
+                  id: example
+                  description: example
+                  clientRequestToken: example
+                  sourceCode: example
+                  toolchain: example
+                  tags: example
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - CodeStar_20170419.CreateProject
+      summary: Amazon CodeStar Create Project
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#X Amz Target=CodeStar 20170419.CreateProject'
+components:
+  schemas:
+    RepositoryDescription:
+      type: string
+      pattern: ^\S(.*\S)?$
+      minLength: 1
+      maxLength: 1000
+    BucketKey:
+      type: string
+    BucketName:
+      type: string
+      minLength: 3
+      maxLength: 63
+    RoleArn:
+      type: string
+      minLength: 1
+      maxLength: 1224
+    Code:
+      type: object
+      required:
+      - source
+      - destination
+      properties:
+        source:
+          allOf:
+          - $ref: '#/components/schemas/CodeSource'
+          - description: The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
+        destination:
+          allOf:
+          - $ref: '#/components/schemas/CodeDestination'
+          - description: The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
+      description: Location and destination information about the source code files provided with the project request. The source code is uploaded to the new project source repository after project creation.
+    ToolchainSource:
+      type: object
+      required:
+      - s3
+      properties:
+        s3:
+          allOf:
+          - $ref: '#/components/schemas/S3Location'
+          - description: The Amazon S3 bucket where the toolchain template file provided with the project request is stored.
+      description: The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
+    ProjectAlreadyExistsException: {}
+    ValidationException: {}
+    GitHubCodeDestination:
+      type: object
+      required:
+      - name
+      - type
+      - owner
+      - privateRepository
+      - issuesEnabled
+      - token
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryName'
+          - description: Name of the GitHub repository to be created in AWS CodeStar.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryDescription'
+          - description: Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryType'
+          - description: The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.
+        owner:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryOwner'
+          - description: The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name.
+        privateRepository:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryIsPrivate'
+          - description: Whether the GitHub repository is to be a private repository.
+        issuesEnabled:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryEnableIssues'
+          - description: Whether to enable issues for the GitHub repository.
+        token:
+          allOf:
+          - $ref: '#/components/schemas/GitHubPersonalToken'
+          - description: The GitHub user's personal access token for the GitHub repository.
+      description: Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+    ProjectArn:
+      type: string
+      pattern: ^arn:aws[^:\s]*:codestar:[^:\s]+:[0-9]{12}:project\/[a-z]([a-z0-9|-])+$
+    RepositoryName:
+      type: string
+      pattern: ^\S[\w.-]*$
+      minLength: 1
+      maxLength: 100
+    ProjectTemplateId:
+      type: string
+      pattern: ^arn:aws[^:\s]{0,5}:codestar:[^:\s]+::project-template(\/(github|codecommit))?\/[a-z0-9-]+$
+      minLength: 1
+    RepositoryIsPrivate:
+      type: boolean
+    RepositoryOwner:
+      type: string
+      pattern: ^\S(.*\S)?$
+      minLength: 1
+      maxLength: 100
+    CodeCommitCodeDestination:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryName'
+          - description: The name of the AWS CodeCommit repository to be created in AWS CodeStar.
+      description: Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+    GitHubPersonalToken:
+      type: string
+      minLength: 1
+      format: password
+    ProjectCreationFailedException: {}
+    CreateProjectResult:
+      type: object
+      required:
+      - id
+      - arn
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ProjectArn'
+          - description: The Amazon Resource Name (ARN) of the created project.
+        clientRequestToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientRequestToken'
+          - description: A user- or system-generated token that identifies the entity that requested project creation.
+        projectTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/ProjectTemplateId'
+          - description: Reserved for future use.
+    CreateProjectRequest:
+      type: object
+      required:
+      - name
+      - id
+      title: CreateProjectRequest
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ProjectName'
+          - description: The display name for the project to be created in AWS CodeStar.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project to be created in AWS CodeStar.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/ProjectDescription'
+          - description: The description of the project, if any.
+        clientRequestToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientRequestToken'
+          - description: A user- or system-generated token that identifies the entity that requested project creation. This token can be used to repeat the request.
+        sourceCode:
+          allOf:
+          - $ref: '#/components/schemas/SourceCode'
+          - description: A list of the Code objects submitted with the project request. If this parameter is specified, the request must also include the toolchain parameter.
+        toolchain:
+          allOf:
+          - $ref: '#/components/schemas/Toolchain'
+          - description: The name of the toolchain template file submitted with the project request. If this parameter is specified, the request must also include the sourceCode parameter.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/Tags'
+          - description: The tags created for the project.
+    InvalidServiceRoleException: {}
+    S3Location:
+      type: object
+      properties:
+        bucketName:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: The Amazon S3 bucket name where the source code files provided with the project request are stored.
+        bucketKey:
+          allOf:
+          - $ref: '#/components/schemas/BucketKey'
+          - description: The Amazon S3 object key where the source code files provided with the project request are stored.
+      description: The Amazon S3 location where the source code files provided with the project request are stored.
+    ProjectDescription:
+      type: string
+      pattern: ^$|^\S(.*\S)?$
+      maxLength: 1024
+      format: password
+    Toolchain:
+      type: object
+      required:
+      - source
+      properties:
+        source:
+          allOf:
+          - $ref: '#/components/schemas/ToolchainSource'
+          - description: The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: The service role ARN for AWS CodeStar to use for the toolchain template during stack provisioning.
+        stackParameters:
+          allOf:
+          - $ref: '#/components/schemas/TemplateParameterMap'
+          - description: The list of parameter overrides to be passed into the toolchain template during stack provisioning, if any.
+      description: The toolchain template file provided with the project request. AWS CodeStar uses the template to provision the toolchain stack in AWS CloudFormation.
+    SourceCode:
+      type: array
+      items:
+        $ref: '#/components/schemas/Code'
+    RepositoryType:
+      type: string
+      pattern: ^(user|organization|User|Organization)$
+    TemplateParameterValue:
+      type: string
+      pattern: ^\S(.*\S)?$
+      minLength: 1
+      maxLength: 100
+      format: password
+    ProjectName:
+      type: string
+      pattern: ^\S(.*\S)?$
+      minLength: 1
+      maxLength: 100
+      format: password
+    LimitExceededException: {}
+    CodeDestination:
+      type: object
+      properties:
+        codeCommit:
+          allOf:
+          - $ref: '#/components/schemas/CodeCommitCodeDestination'
+          - description: Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+        gitHub:
+          allOf:
+          - $ref: '#/components/schemas/GitHubCodeDestination'
+          - description: Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+      description: The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
+    TemplateParameterMap:
+      type: object
+      maxProperties: 25
+      additionalProperties:
+        $ref: '#/components/schemas/TemplateParameterValue'
+    ConcurrentModificationException: {}
+    CodeSource:
+      type: object
+      required:
+      - s3
+      properties:
+        s3:
+          allOf:
+          - $ref: '#/components/schemas/S3Location'
+          - description: 'Information about the Amazon S3 location where the source code files provided with the project request are stored. '
+      description: The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
+    TagValue:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      maxLength: 256
+    ProjectId:
+      type: string
+      pattern: ^[a-z][a-z0-9-]+$
+      minLength: 2
+      maxLength: 15
+    RepositoryEnableIssues:
+      type: boolean
+    ClientRequestToken:
+      type: string
+      pattern: ^[\w:/-]+$
+      minLength: 1
+      maxLength: 256
+    ProjectConfigurationException: {}
+    Tags:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/codestar/
+x-hasEquivalentPaths: true

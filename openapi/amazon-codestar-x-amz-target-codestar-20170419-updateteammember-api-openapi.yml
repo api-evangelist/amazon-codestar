@@ -1,0 +1,365 @@
+openapi: 3.0.0
+info:
+  version: '2017-04-19'
+  x-release: v4
+  title: 'AWS CodeStar #X Amz Target=CodeStar 20170419.AssociateTeamMember #X Amz Target=CodeStar 20170419.AssociateTeamMember #X Amz Target=CodeStar 20170419.UpdateTeamMember API'
+  description: <fullname>AWS CodeStar</fullname> <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data types for the AWS CodeStar API along with usage examples.</p> <p>You can use the AWS CodeStar API to work with:</p> <p>Projects and their resources, by calling the following:</p> <ul> <li> <p> <code>DeleteProject</code>, which deletes a project.</p> </li> <li> <p> <code>DescribeProject</code>, which lists the attributes of a project.</p> </li> <li> <p> <code>ListProjects</code>, which lists all projects associated with your AWS account.</p> </li> <li> <p> <code>ListResources</code>, which lists the resources associated with a project.</p> </li> <li> <p> <code>ListTagsForProject</code>, which lists the tags associated with a project.</p> </li> <li> <p> <code>TagProject</code>, which adds tags to a project.</p> </li> <li> <p> <code>UntagProject</code>, which removes tags from a project.</p> </li> <li> <p> <code>UpdateProject</code>, which updates the attributes of a project.</p> </li> </ul> <p>Teams and team members, by calling the following:</p> <ul> <li> <p> <code>AssociateTeamMember</code>, which adds an IAM user to the team for a project.</p> </li> <li> <p> <code>DisassociateTeamMember</code>, which removes an IAM user from the team for a project.</p> </li> <li> <p> <code>ListTeamMembers</code>, which lists all the IAM users in the team for a project, including their roles and attributes.</p> </li> <li> <p> <code>UpdateTeamMember</code>, which updates a team member's attributes in a project.</p> </li> </ul> <p>Users, by calling the following:</p> <ul> <li> <p> <code>CreateUserProfile</code>, which creates a user profile that contains data associated with the user across all projects.</p> </li> <li> <p> <code>DeleteUserProfile</code>, which deletes all user profile information across all projects.</p> </li> <li> <p> <code>DescribeUserProfile</code>, which describes the profile of a user.</p> </li> <li> <p> <code>ListUserProfiles</code>, which lists all user profiles.</p> </li> <li> <p> <code>UpdateUserProfile</code>, which updates the profile for a user.</p> </li> </ul>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: codestar
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/codestar-2017-04-19.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://codestar.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The CodeStar multi-region endpoint
+- url: https://codestar.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The CodeStar multi-region endpoint
+- url: http://codestar.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The CodeStar endpoint for China (Beijing) and China (Ningxia)
+- url: https://codestar.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The CodeStar endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=CodeStar 20170419.UpdateTeamMember'
+paths:
+  /#X-Amz-Target=CodeStar_20170419.UpdateTeamMember:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: UpdateTeamMember
+      description: Updates a team member's attributes in an AWS CodeStar project. For example, you can change a team member's role in the project, or change whether they have remote access to project resources.
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateTeamMemberResult'
+              examples:
+                UpdateTeamMember200Example:
+                  summary: Default UpdateTeamMember 200 response
+                  x-microcks-default: true
+                  value:
+                    userArn: example
+                    projectRole: example
+                    remoteAccessAllowed: example
+        '480':
+          description: LimitExceededException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LimitExceededException'
+              examples:
+                UpdateTeamMember480Example:
+                  summary: Default UpdateTeamMember 480 response
+                  x-microcks-default: true
+                  value: example
+        '481':
+          description: ProjectNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectNotFoundException'
+              examples:
+                UpdateTeamMember481Example:
+                  summary: Default UpdateTeamMember 481 response
+                  x-microcks-default: true
+                  value: example
+        '482':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+              examples:
+                UpdateTeamMember482Example:
+                  summary: Default UpdateTeamMember 482 response
+                  x-microcks-default: true
+                  value: example
+        '483':
+          description: InvalidServiceRoleException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidServiceRoleException'
+              examples:
+                UpdateTeamMember483Example:
+                  summary: Default UpdateTeamMember 483 response
+                  x-microcks-default: true
+                  value: example
+        '484':
+          description: ProjectConfigurationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectConfigurationException'
+              examples:
+                UpdateTeamMember484Example:
+                  summary: Default UpdateTeamMember 484 response
+                  x-microcks-default: true
+                  value: example
+        '485':
+          description: ConcurrentModificationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConcurrentModificationException'
+              examples:
+                UpdateTeamMember485Example:
+                  summary: Default UpdateTeamMember 485 response
+                  x-microcks-default: true
+                  value: example
+        '486':
+          description: TeamMemberNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TeamMemberNotFoundException'
+              examples:
+                UpdateTeamMember486Example:
+                  summary: Default UpdateTeamMember 486 response
+                  x-microcks-default: true
+                  value: example
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTeamMemberRequest'
+            examples:
+              UpdateTeamMemberRequestExample:
+                summary: Default UpdateTeamMember request
+                x-microcks-default: true
+                value:
+                  projectId: example
+                  userArn: example
+                  projectRole: example
+                  remoteAccessAllowed: example
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - CodeStar_20170419.UpdateTeamMember
+      summary: Amazon CodeStar Update Team Member
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      tags:
+      - '#X Amz Target=CodeStar 20170419.UpdateTeamMember'
+components:
+  schemas:
+    UpdateTeamMemberRequest:
+      type: object
+      required:
+      - projectId
+      - userArn
+      title: UpdateTeamMemberRequest
+      properties:
+        projectId:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project.
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the user for whom you want to change team membership attributes.
+        projectRole:
+          allOf:
+          - $ref: '#/components/schemas/Role'
+          - description: The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working with Teams</a> in the <i>AWS CodeStar User Guide</i>.
+        remoteAccessAllowed:
+          allOf:
+          - $ref: '#/components/schemas/RemoteAccessAllowed'
+          - description: Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
+    ValidationException: {}
+    TeamMemberNotFoundException: {}
+    UpdateTeamMemberResult:
+      type: object
+      properties:
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the user whose team membership attributes were updated.
+        projectRole:
+          allOf:
+          - $ref: '#/components/schemas/Role'
+          - description: The project role granted to the user.
+        remoteAccessAllowed:
+          allOf:
+          - $ref: '#/components/schemas/RemoteAccessAllowed'
+          - description: Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile.
+    UserArn:
+      type: string
+      pattern: ^arn:aws:iam::\d{12}:user(?:(\u002F)|(\u002F[\u0021-\u007E]+\u002F))[\w+=,.@-]+$
+      minLength: 32
+      maxLength: 95
+    ProjectNotFoundException: {}
+    RemoteAccessAllowed:
+      type: boolean
+    InvalidServiceRoleException: {}
+    Role:
+      type: string
+      pattern: ^(Owner|Viewer|Contributor)$
+    LimitExceededException: {}
+    ConcurrentModificationException: {}
+    ProjectId:
+      type: string
+      pattern: ^[a-z][a-z0-9-]+$
+      minLength: 2
+      maxLength: 15
+    ProjectConfigurationException: {}
+  parameters:
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/codestar/
+x-hasEquivalentPaths: true
