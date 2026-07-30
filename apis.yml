@@ -3,7 +3,19 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-codestar/refs/heads/main/apis.yml
 name: Amazon CodeStar
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-codestar.png
 specificationVersion: '0.19'
 description: >-
   AWS CodeStar provides a unified user interface enabling you to easily manage
@@ -15,56 +27,659 @@ description: >-
 created: '2024-01-15'
 modified: '2026-06-20'
 apis:
-  - name: AWS CodeStar API
-    description: >-
-      The AWS CodeStar API provides a unified interface for managing software
-      development activities in one place. It enables you to quickly set up
-      continuous delivery toolchains, create and manage projects, add team
-      members with role-based access, and integrate with other AWS developer
-      tools. The API allows you to create projects, manage project resources,
-      list and tag projects, and coordinate team collaboration across your
-      development workflow. Users can also maintain cross-project profiles
-      with display names, email addresses, and SSH public keys.
-    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-    humanURL: https://aws.amazon.com/codestar/
-    baseURL: https://codestar.amazonaws.com
-    tags:
-      - AWS
-      - Developer Tools
-      - DevOps
-      - Project Management
-      - Team Collaboration
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/codestar/
-      - type: OpenAPI
-        url: openapi/amazon-codestar-openapi.yml
-      - type: Pricing
-        url: https://aws.amazon.com/codestar/pricing/
-      - type: GettingStarted
-        url: https://aws.amazon.com/codestar/getting-started/
-      - type: FAQ
-        url: https://aws.amazon.com/codestar/faqs/
-      - type: JSONSchema
-        url: json-schema/codestar-openapi-project-schema.json
-      - type: JSONStructure
-        url: json-structure/codestar-openapi-project-structure.json
-      - type: JSON-LD
-        url: json-ld/amazon-codestar-context.jsonld
-      - type: Packages
-        url: packages/amazon-codestar-packages.yml
-      - type: MCPServer
-        url: mcp/amazon-codestar-mcp.yml
-      - type: LLMsTxt
-        url: llms/amazon-codestar-llms.txt
-      - type: Overlay
-        url: overlays/amazon-codestar-openapi-overlay.yaml
-      - type: Conformance
-        url: conformance/amazon-codestar-conformance.yml
-      - type: ErrorCatalog
-        url: errors/amazon-codestar-problem-types.yml
-      - type: Lifecycle
-        url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-associateteammember-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.AssociateTeamMember API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.AssociateTeamMember API from Amazon CodeStar — 1 operation(s)
+    for #x amz target=codestar 20170419.associateteammember.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.AssociateTeamMember'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-codestar-x-amz-target-codestar-20170419-associateteammember-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-createproject-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.CreateProject API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.CreateProject API from Amazon CodeStar — 1 operation(s) for #x
+    amz target=codestar 20170419.createproject.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.CreateProject'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-createproject-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-createuserprofile-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.CreateUserProfile API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.CreateUserProfile API from Amazon CodeStar — 1 operation(s) for
+    #x amz target=codestar 20170419.createuserprofile.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.CreateUserProfile'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-createuserprofile-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-deleteproject-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.DeleteProject API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.DeleteProject API from Amazon CodeStar — 1 operation(s) for #x
+    amz target=codestar 20170419.deleteproject.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.DeleteProject'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-deleteproject-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-deleteuserprofile-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.DeleteUserProfile API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.DeleteUserProfile API from Amazon CodeStar — 1 operation(s) for
+    #x amz target=codestar 20170419.deleteuserprofile.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.DeleteUserProfile'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-deleteuserprofile-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-describeproject-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.DescribeProject API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.DescribeProject API from Amazon CodeStar — 1 operation(s) for
+    #x amz target=codestar 20170419.describeproject.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.DescribeProject'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-describeproject-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-describeuserprofile-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.DescribeUserProfile API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.DescribeUserProfile API from Amazon CodeStar — 1 operation(s)
+    for #x amz target=codestar 20170419.describeuserprofile.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.DescribeUserProfile'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-codestar-x-amz-target-codestar-20170419-describeuserprofile-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: >-
+    amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-disassociateteammember-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.DisassociateTeamMember API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.DisassociateTeamMember API from Amazon CodeStar — 1 operation(s)
+    for #x amz target=codestar 20170419.disassociateteammember.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.DisassociateTeamMember'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-codestar-x-amz-target-codestar-20170419-disassociateteammember-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-listprojects-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.ListProjects API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.ListProjects API from Amazon CodeStar — 1 operation(s) for #x
+    amz target=codestar 20170419.listprojects.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.ListProjects'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-listprojects-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-listresources-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.ListResources API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.ListResources API from Amazon CodeStar — 1 operation(s) for #x
+    amz target=codestar 20170419.listresources.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.ListResources'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-listresources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-listtagsforproject-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.ListTagsForProject API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.ListTagsForProject API from Amazon CodeStar — 1 operation(s) for
+    #x amz target=codestar 20170419.listtagsforproject.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.ListTagsForProject'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-codestar-x-amz-target-codestar-20170419-listtagsforproject-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-listteammembers-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.ListTeamMembers API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.ListTeamMembers API from Amazon CodeStar — 1 operation(s) for
+    #x amz target=codestar 20170419.listteammembers.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.ListTeamMembers'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-listteammembers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-listuserprofiles-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.ListUserProfiles API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.ListUserProfiles API from Amazon CodeStar — 1 operation(s) for
+    #x amz target=codestar 20170419.listuserprofiles.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.ListUserProfiles'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-listuserprofiles-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-tagproject-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.TagProject API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.TagProject API from Amazon CodeStar — 1 operation(s) for #x amz
+    target=codestar 20170419.tagproject.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.TagProject'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-tagproject-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-untagproject-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.UntagProject API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.UntagProject API from Amazon CodeStar — 1 operation(s) for #x
+    amz target=codestar 20170419.untagproject.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.UntagProject'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-untagproject-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-updateproject-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.UpdateProject API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.UpdateProject API from Amazon CodeStar — 1 operation(s) for #x
+    amz target=codestar 20170419.updateproject.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.UpdateProject'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-updateproject-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-updateteammember-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.UpdateTeamMember API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.UpdateTeamMember API from Amazon CodeStar — 1 operation(s) for
+    #x amz target=codestar 20170419.updateteammember.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.UpdateTeamMember'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-updateteammember-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
+- aid: amazon-codestar:amazon-codestar-x-amz-target-codestar-20170419-updateuserprofile-api
+  name: 'Amazon CodeStar #X Amz Target=CodeStar 20170419.UpdateUserProfile API'
+  description: >-
+    The #X Amz Target=CodeStar 20170419.UpdateUserProfile API from Amazon CodeStar — 1 operation(s) for
+    #x amz target=codestar 20170419.updateuserprofile.
+  humanURL: https://aws.amazon.com/codestar/
+  baseURL: https://codestar.amazonaws.com
+  tags:
+  - '#X Amz Target=CodeStar 20170419.UpdateUserProfile'
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-codestar-x-amz-target-codestar-20170419-updateuserprofile-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/codestar/
+  - type: Pricing
+    url: https://aws.amazon.com/codestar/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/codestar/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/codestar/faqs/
+  - type: JSONSchema
+    url: json-schema/codestar-openapi-project-schema.json
+  - type: JSONStructure
+    url: json-structure/codestar-openapi-project-structure.json
+  - type: JSON-LD
+    url: json-ld/amazon-codestar-context.jsonld
+  - type: Packages
+    url: packages/amazon-codestar-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-codestar-llms.txt
+  - type: Conformance
+    url: conformance/amazon-codestar-conformance.yml
+  - type: ErrorCatalog
+    url: errors/amazon-codestar-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-codestar-lifecycle.yml
 common:
   - type: AgenticAccess
     url: agentic-access/amazon-codestar-agentic-access.yml
