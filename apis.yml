@@ -48,10 +48,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -84,10 +80,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -120,10 +112,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -156,10 +144,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -192,10 +176,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -228,10 +208,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -265,10 +241,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -303,10 +275,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -339,10 +307,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -375,10 +339,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -412,10 +372,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -448,10 +404,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -484,10 +436,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -520,10 +468,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -556,10 +500,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -592,10 +532,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -628,10 +564,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -664,10 +596,6 @@ apis:
     url: https://aws.amazon.com/codestar/getting-started/
   - type: FAQ
     url: https://aws.amazon.com/codestar/faqs/
-  - type: JSONSchema
-    url: json-schema/codestar-openapi-project-schema.json
-  - type: JSONStructure
-    url: json-structure/codestar-openapi-project-structure.json
   - type: JSON-LD
     url: json-ld/amazon-codestar-context.jsonld
   - type: Packages
@@ -681,6 +609,10 @@ apis:
   - type: Lifecycle
     url: lifecycle/amazon-codestar-lifecycle.yml
 common:
+  - type: MCPServer
+    url: mcp/amazon-codestar-mcp.yml
+  - type: Overlay
+    url: overlays/amazon-codestar-openapi-overlay.yaml
   - type: AgenticAccess
     url: agentic-access/amazon-codestar-agentic-access.yml
   - type: TrustCenter
