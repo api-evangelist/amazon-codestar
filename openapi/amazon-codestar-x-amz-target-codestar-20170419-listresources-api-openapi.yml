@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'AWS CodeStar #X Amz Target=CodeStar 20170419.AssociateTeamMember #X Amz Target=CodeStar 20170419.AssociateTeamMember #X Amz Target=CodeStar 20170419.ListResources API'
+  title: 'AWS CodeStar #X Amz Target=CodeStar 20170419.AssociateTeamMember #X Amz Target=CodeStar 20170419.AssociateTeamMember #X Amz Target=CodeStar 20170419.ListResources #X Amz Target=CodeStar 20170419.ListResources #X Amz Target=CodeStar 20170419.ListResources API'
   description: <fullname>AWS CodeStar</fullname> <p>This is the API reference for AWS CodeStar. This reference provides descriptions of the operations and data types for the AWS CodeStar API along with usage examples.</p> <p>You can use the AWS CodeStar API to work with:</p> <p>Projects and their resources, by calling the following:</p> <ul> <li> <p> <code>DeleteProject</code>, which deletes a project.</p> </li> <li> <p> <code>DescribeProject</code>, which lists the attributes of a project.</p> </li> <li> <p> <code>ListProjects</code>, which lists all projects associated with your AWS account.</p> </li> <li> <p> <code>ListResources</code>, which lists the resources associated with a project.</p> </li> <li> <p> <code>ListTagsForProject</code>, which lists the tags associated with a project.</p> </li> <li> <p> <code>TagProject</code>, which adds tags to a project.</p> </li> <li> <p> <code>UntagProject</code>, which removes tags from a project.</p> </li> <li> <p> <code>UpdateProject</code>, which updates the attributes of a project.</p> </li> </ul> <p>Teams and team members, by calling the following:</p> <ul> <li> <p> <code>AssociateTeamMember</code>, which adds an IAM user to the team for a project.</p> </li> <li> <p> <code>DisassociateTeamMember</code>, which removes an IAM user from the team for a project.</p> </li> <li> <p> <code>ListTeamMembers</code>, which lists all the IAM users in the team for a project, including their roles and attributes.</p> </li> <li> <p> <code>UpdateTeamMember</code>, which updates a team member's attributes in a project.</p> </li> </ul> <p>Users, by calling the following:</p> <ul> <li> <p> <code>CreateUserProfile</code>, which creates a user profile that contains data associated with the user across all projects.</p> </li> <li> <p> <code>DeleteUserProfile</code>, which deletes all user profile information across all projects.</p> </li> <li> <p> <code>DescribeUserProfile</code>, which describes the profile of a user.</p> </li> <li> <p> <code>ListUserProfiles</code>, which lists all user profiles.</p> </li> <li> <p> <code>UpdateUserProfile</code>, which updates the profile for a user.</p> </li> </ul>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -206,10 +206,22 @@ components:
       type: string
       pattern: ^arn\:aws\:\S.*\:.*
       minLength: 11
-    ResourcesResult:
-      type: array
-      items:
-        $ref: '#/components/schemas/Resource'
+    ValidationException: {}
+    Resource:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ResourceId'
+          - description: The Amazon Resource Name (ARN) of the resource.
+      description: Information about a resource for a project.
+    ProjectId:
+      type: string
+      pattern: ^[a-z][a-z0-9-]+$
+      minLength: 2
+      maxLength: 15
     ListResourcesRequest:
       type: object
       required:
@@ -228,6 +240,16 @@ components:
           allOf:
           - $ref: '#/components/schemas/MaxResults'
           - description: The maximum amount of data that can be contained in a single set of results.
+    InvalidNextTokenException: {}
+    ProjectNotFoundException: {}
+    ResourcesResult:
+      type: array
+      items:
+        $ref: '#/components/schemas/Resource'
+    MaxResults:
+      type: integer
+      minimum: 1
+      maximum: 100
     ListResourcesResult:
       type: object
       properties:
@@ -239,54 +261,20 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The continuation token to use when requesting the next set of results, if there are more results to be returned.
-    ValidationException: {}
-    Resource:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ResourceId'
-          - description: The Amazon Resource Name (ARN) of the resource.
-      description: Information about a resource for a project.
-    MaxResults:
-      type: integer
-      minimum: 1
-      maximum: 100
-    ProjectId:
-      type: string
-      pattern: ^[a-z][a-z0-9-]+$
-      minLength: 2
-      maxLength: 15
-    InvalidNextTokenException: {}
-    ProjectNotFoundException: {}
     PaginationToken:
       type: string
       pattern: ^[\w/+=]+$
       minLength: 1
       maxLength: 512
   parameters:
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
@@ -305,6 +293,18 @@ components:
       required: false
     X-Amz-Content-Sha256:
       name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
