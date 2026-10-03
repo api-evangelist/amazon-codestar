@@ -6,9 +6,7 @@
   "outputs": [
     "amazon-codestar-aws-codestar-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 18 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -33,27 +31,9 @@
     "amazon-codestar-openapi.yml: tagged paths POST /#X-Amz-Target=CodeStar_20170419.UpdateTeamMember -> AWS CodeStar",
     "amazon-codestar-openapi.yml: tagged paths POST /#X-Amz-Target=CodeStar_20170419.UpdateUserProfile -> AWS CodeStar",
     "amazon-codestar-openapi.yml: declared missing tag: AWS CodeStar",
-    "superseded outputs removed: amazon-codestar-x-amz-target-codestar-20170419-associateteammember-api-openapi.yml, amazon-codestar-x-amz-target-codestar-20170419-createproject-api-openapi.yml, amazon-codestar-x-amz-target-codestar-20170419-createuserprofile-api-openapi.yml, amazon-codestar-x-amz-target-codestar-20170419-deleteproject-api-openapi.yml, amazon-codestar-x-amz-target-codestar-20170419-deleteuserprofile-api-openapi.yml \u2026",
-    "apis.yml register: written (+1 apis, 1 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
-    "amazon-codestar-x-amz-target-codestar-20170419-associateteammember-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-createproject-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-createuserprofile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-deleteproject-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-deleteuserprofile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-describeproject-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-describeuserprofile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-disassociateteammember-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-listprojects-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-listresources-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-listtagsforproject-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-listteammembers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-listuserprofiles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-tagproject-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-untagproject-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-updateproject-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-updateteammember-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-codestar-x-amz-target-codestar-20170419-updateuserprofile-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "amazon-codestar-aws-codestar-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

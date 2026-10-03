@@ -1794,140 +1794,98 @@ paths:
       - AWS CodeStar
 components:
   schemas:
+    TagProjectResult:
+      type: object
+      properties:
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/Tags'
+          - description: The tags for the project.
     DeleteStack:
       type: boolean
-    ProjectAlreadyExistsException: {}
-    RepositoryDescription:
+    InvalidServiceRoleException: {}
+    ToolchainSource:
+      type: object
+      required:
+      - s3
+      properties:
+        s3:
+          allOf:
+          - $ref: '#/components/schemas/S3Location'
+          - description: The Amazon S3 bucket where the toolchain template file provided with the project request is stored.
+      description: The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
+    TagKeys:
+      type: array
+      items:
+        $ref: '#/components/schemas/TagKey'
+    ResourceId:
       type: string
-      pattern: ^\S(.*\S)?$
-      minLength: 1
-      maxLength: 1000
-    TeamMemberNotFoundException: {}
+      pattern: ^arn\:aws\:\S.*\:.*
+      minLength: 11
+    DisassociateTeamMemberResult:
+      type: object
+      properties: {}
+    UntagProjectRequest:
+      type: object
+      required:
+      - id
+      - tags
+      title: UntagProjectRequest
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project to remove tags from.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/TagKeys'
+          - description: The tags to remove from the project.
+    DescribeUserProfileRequest:
+      type: object
+      required:
+      - userArn
+      title: DescribeUserProfileRequest
+      properties:
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the user.
+    UserProfilesList:
+      type: array
+      items:
+        $ref: '#/components/schemas/UserProfileSummary'
+    Reason:
+      type: string
+      pattern: ^$|^\S(.*\S)?$
+      maxLength: 1024
+    ResourcesResult:
+      type: array
+      items:
+        $ref: '#/components/schemas/Resource'
+    DisassociateTeamMemberRequest:
+      type: object
+      required:
+      - projectId
+      - userArn
+      title: DisassociateTeamMemberRequest
+      properties:
+        projectId:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the AWS CodeStar project from which you want to remove a team member.
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
     RepositoryOwner:
       type: string
       pattern: ^\S(.*\S)?$
       minLength: 1
       maxLength: 100
-    ClientRequestToken:
+    CreatedTimestamp:
       type: string
-      pattern: ^[\w:/-]+$
-      minLength: 1
-      maxLength: 256
-    UserProfileNotFoundException: {}
-    UpdateUserProfileRequest:
-      type: object
-      required:
-      - userArn
-      title: UpdateUserProfileRequest
-      properties:
-        userArn:
-          allOf:
-          - $ref: '#/components/schemas/UserArn'
-          - description: The name that will be displayed as the friendly name for the user in AWS CodeStar.
-        displayName:
-          allOf:
-          - $ref: '#/components/schemas/UserProfileDisplayName'
-          - description: The name that is displayed as the friendly name for the user in AWS CodeStar.
-        emailAddress:
-          allOf:
-          - $ref: '#/components/schemas/Email'
-          - description: The email address that is displayed as part of the user's profile in AWS CodeStar.
-        sshPublicKey:
-          allOf:
-          - $ref: '#/components/schemas/SshPublicKey'
-          - description: The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
-    LimitExceededException: {}
-    TeamMemberResult:
-      type: array
-      items:
-        $ref: '#/components/schemas/TeamMember'
-    CodeCommitCodeDestination:
-      type: object
-      required:
-      - name
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/RepositoryName'
-          - description: The name of the AWS CodeCommit repository to be created in AWS CodeStar.
-      description: Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
-    UserArn:
-      type: string
-      pattern: ^arn:aws:iam::\d{12}:user(?:(\u002F)|(\u002F[\u0021-\u007E]+\u002F))[\w+=,.@-]+$
-      minLength: 32
-      maxLength: 95
-    RepositoryName:
-      type: string
-      pattern: ^\S[\w.-]*$
-      minLength: 1
-      maxLength: 100
-    UpdateTeamMemberResult:
-      type: object
-      properties:
-        userArn:
-          allOf:
-          - $ref: '#/components/schemas/UserArn'
-          - description: The Amazon Resource Name (ARN) of the user whose team membership attributes were updated.
-        projectRole:
-          allOf:
-          - $ref: '#/components/schemas/Role'
-          - description: The project role granted to the user.
-        remoteAccessAllowed:
-          allOf:
-          - $ref: '#/components/schemas/RemoteAccessAllowed'
-          - description: Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile.
-    TagKeys:
-      type: array
-      items:
-        $ref: '#/components/schemas/TagKey'
-    ListTeamMembersRequest:
-      type: object
-      required:
-      - projectId
-      title: ListTeamMembersRequest
-      properties:
-        projectId:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project for which you want to list team members.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The continuation token for the next set of results, if the results cannot be returned in one response.
-        maxResults:
-          allOf:
-          - $ref: '#/components/schemas/MaxResults'
-          - description: The maximum number of team members you want returned in a response.
-    SourceCode:
-      type: array
-      items:
-        $ref: '#/components/schemas/Code'
-    ProjectConfigurationException: {}
-    RepositoryType:
-      type: string
-      pattern: ^(user|organization|User|Organization)$
-    StackId:
-      type: string
-      pattern: ^arn:aws[^:\s]*:cloudformation:[^:\s]+:[0-9]{12}:stack\/[^:\s]+\/[^:\s]+$
-    ListProjectsResult:
-      type: object
-      required:
-      - projects
-      properties:
-        projects:
-          allOf:
-          - $ref: '#/components/schemas/ProjectsList'
-          - description: A list of projects.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The continuation token to use when requesting the next set of results, if there are more results to be returned.
-    UserProfileAlreadyExistsException: {}
-    BucketName:
-      type: string
-      minLength: 3
-      maxLength: 63
-    InvalidNextTokenException: {}
+      format: date-time
+    ProjectAlreadyExistsException: {}
     UpdateTeamMemberRequest:
       type: object
       required:
@@ -1951,290 +1909,38 @@ components:
           allOf:
           - $ref: '#/components/schemas/RemoteAccessAllowed'
           - description: Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile. Even if this is set to True, the user must associate a public key with their profile before the user can access resources.
-    ProjectsList:
-      type: array
-      items:
-        $ref: '#/components/schemas/ProjectSummary'
-    ProjectTemplateId:
-      type: string
-      pattern: ^arn:aws[^:\s]{0,5}:codestar:[^:\s]+::project-template(\/(github|codecommit))?\/[a-z0-9-]+$
-      minLength: 1
-    CreatedTimestamp:
-      type: string
-      format: date-time
-    ListUserProfilesRequest:
+    ListTeamMembersResult:
       type: object
-      title: ListUserProfilesRequest
+      required:
+      - teamMembers
       properties:
+        teamMembers:
+          allOf:
+          - $ref: '#/components/schemas/TeamMemberResult'
+          - description: A list of team member objects for the project.
         nextToken:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
-          - description: The continuation token for the next set of results, if the results cannot be returned in one response.
+          - description: The continuation token to use when requesting the next set of results, if there are more results to be returned.
+    ListTagsForProjectRequest:
+      type: object
+      required:
+      - id
+      title: ListTagsForProjectRequest
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project to get tags for.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Reserved for future use.
         maxResults:
           allOf:
           - $ref: '#/components/schemas/MaxResults'
-          - description: The maximum number of results to return in a response.
-    RemoteAccessAllowed:
-      type: boolean
-    CreateUserProfileResult:
-      type: object
-      required:
-      - userArn
-      properties:
-        userArn:
-          allOf:
-          - $ref: '#/components/schemas/UserArn'
-          - description: The Amazon Resource Name (ARN) of the user in IAM.
-        displayName:
-          allOf:
-          - $ref: '#/components/schemas/UserProfileDisplayName'
-          - description: The name that is displayed as the friendly name for the user in AWS CodeStar.
-        emailAddress:
-          allOf:
-          - $ref: '#/components/schemas/Email'
-          - description: The email address that is displayed as part of the user's profile in AWS CodeStar.
-        sshPublicKey:
-          allOf:
-          - $ref: '#/components/schemas/SshPublicKey'
-          - description: The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources.
-        createdTimestamp:
-          allOf:
-          - $ref: '#/components/schemas/CreatedTimestamp'
-          - description: The date the user profile was created, in timestamp format.
-        lastModifiedTimestamp:
-          allOf:
-          - $ref: '#/components/schemas/LastModifiedTimestamp'
-          - description: The date the user profile was last modified, in timestamp format.
-    UpdateProjectResult:
-      type: object
-      properties: {}
-    TeamMember:
-      type: object
-      required:
-      - userArn
-      - projectRole
-      properties:
-        userArn:
-          allOf:
-          - $ref: '#/components/schemas/UserArn'
-          - description: The Amazon Resource Name (ARN) of the user in IAM.
-        projectRole:
-          allOf:
-          - $ref: '#/components/schemas/Role'
-          - description: 'The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working with Teams</a> in the <i>AWS CodeStar User Guide</i>. '
-        remoteAccessAllowed:
-          allOf:
-          - $ref: '#/components/schemas/RemoteAccessAllowed'
-          - description: Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
-      description: Information about a team member in a project.
-    InvalidServiceRoleException: {}
-    UntagProjectResult:
-      type: object
-      properties: {}
-    ConcurrentModificationException: {}
-    Code:
-      type: object
-      required:
-      - source
-      - destination
-      properties:
-        source:
-          allOf:
-          - $ref: '#/components/schemas/CodeSource'
-          - description: The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
-        destination:
-          allOf:
-          - $ref: '#/components/schemas/CodeDestination'
-          - description: The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
-      description: Location and destination information about the source code files provided with the project request. The source code is uploaded to the new project source repository after project creation.
-    CodeSource:
-      type: object
-      required:
-      - s3
-      properties:
-        s3:
-          allOf:
-          - $ref: '#/components/schemas/S3Location'
-          - description: 'Information about the Amazon S3 location where the source code files provided with the project request are stored. '
-      description: The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
-    ToolchainSource:
-      type: object
-      required:
-      - s3
-      properties:
-        s3:
-          allOf:
-          - $ref: '#/components/schemas/S3Location'
-          - description: The Amazon S3 bucket where the toolchain template file provided with the project request is stored.
-      description: The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
-    TemplateParameterValue:
-      type: string
-      pattern: ^\S(.*\S)?$
-      minLength: 1
-      maxLength: 100
-      format: password
-    TagValue:
-      type: string
-      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      maxLength: 256
-    Resource:
-      type: object
-      required:
-      - id
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ResourceId'
-          - description: The Amazon Resource Name (ARN) of the resource.
-      description: Information about a resource for a project.
-    ValidationException: {}
-    TagProjectRequest:
-      type: object
-      required:
-      - id
-      - tags
-      title: TagProjectRequest
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project you want to add a tag to.
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/Tags'
-          - description: The tags you want to add to the project.
-    UserProfilesList:
-      type: array
-      items:
-        $ref: '#/components/schemas/UserProfileSummary'
-    UpdateUserProfileResult:
-      type: object
-      required:
-      - userArn
-      properties:
-        userArn:
-          allOf:
-          - $ref: '#/components/schemas/UserArn'
-          - description: The Amazon Resource Name (ARN) of the user in IAM.
-        displayName:
-          allOf:
-          - $ref: '#/components/schemas/UserProfileDisplayName'
-          - description: The name that is displayed as the friendly name for the user in AWS CodeStar.
-        emailAddress:
-          allOf:
-          - $ref: '#/components/schemas/Email'
-          - description: The email address that is displayed as part of the user's profile in AWS CodeStar.
-        sshPublicKey:
-          allOf:
-          - $ref: '#/components/schemas/SshPublicKey'
-          - description: The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources.
-        createdTimestamp:
-          allOf:
-          - $ref: '#/components/schemas/CreatedTimestamp'
-          - description: The date the user profile was created, in timestamp format.
-        lastModifiedTimestamp:
-          allOf:
-          - $ref: '#/components/schemas/LastModifiedTimestamp'
-          - description: The date the user profile was last modified, in timestamp format.
-    CreateProjectRequest:
-      type: object
-      required:
-      - name
-      - id
-      title: CreateProjectRequest
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ProjectName'
-          - description: The display name for the project to be created in AWS CodeStar.
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project to be created in AWS CodeStar.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/ProjectDescription'
-          - description: The description of the project, if any.
-        clientRequestToken:
-          allOf:
-          - $ref: '#/components/schemas/ClientRequestToken'
-          - description: A user- or system-generated token that identifies the entity that requested project creation. This token can be used to repeat the request.
-        sourceCode:
-          allOf:
-          - $ref: '#/components/schemas/SourceCode'
-          - description: A list of the Code objects submitted with the project request. If this parameter is specified, the request must also include the toolchain parameter.
-        toolchain:
-          allOf:
-          - $ref: '#/components/schemas/Toolchain'
-          - description: The name of the toolchain template file submitted with the project request. If this parameter is specified, the request must also include the sourceCode parameter.
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/Tags'
-          - description: The tags created for the project.
-    MaxResults:
-      type: integer
-      minimum: 1
-      maximum: 100
-    PaginationToken:
-      type: string
-      pattern: ^[\w/+=]+$
-      minLength: 1
-      maxLength: 512
-    ProjectName:
-      type: string
-      pattern: ^\S(.*\S)?$
-      minLength: 1
-      maxLength: 100
-      format: password
-    UntagProjectRequest:
-      type: object
-      required:
-      - id
-      - tags
-      title: UntagProjectRequest
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project to remove tags from.
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/TagKeys'
-          - description: The tags to remove from the project.
-    DisassociateTeamMemberRequest:
-      type: object
-      required:
-      - projectId
-      - userArn
-      title: DisassociateTeamMemberRequest
-      properties:
-        projectId:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the AWS CodeStar project from which you want to remove a team member.
-        userArn:
-          allOf:
-          - $ref: '#/components/schemas/UserArn'
-          - description: The Amazon Resource Name (ARN) of the IAM user or group whom you want to remove from the project.
-    Toolchain:
-      type: object
-      required:
-      - source
-      properties:
-        source:
-          allOf:
-          - $ref: '#/components/schemas/ToolchainSource'
-          - description: The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
-        roleArn:
-          allOf:
-          - $ref: '#/components/schemas/RoleArn'
-          - description: The service role ARN for AWS CodeStar to use for the toolchain template during stack provisioning.
-        stackParameters:
-          allOf:
-          - $ref: '#/components/schemas/TemplateParameterMap'
-          - description: The list of parameter overrides to be passed into the toolchain template during stack provisioning, if any.
-      description: The toolchain template file provided with the project request. AWS CodeStar uses the template to provision the toolchain stack in AWS CloudFormation.
-    RepositoryEnableIssues:
+          - description: Reserved for future use.
+    RepositoryIsPrivate:
       type: boolean
     DeleteUserProfileRequest:
       type: object
@@ -2246,147 +1952,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/UserArn'
           - description: The Amazon Resource Name (ARN) of the user to delete from AWS CodeStar.
-    ProjectId:
-      type: string
-      pattern: ^[a-z][a-z0-9-]+$
-      minLength: 2
-      maxLength: 15
-    TagProjectResult:
-      type: object
-      properties:
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/Tags'
-          - description: The tags for the project.
-    CodeDestination:
-      type: object
-      properties:
-        codeCommit:
-          allOf:
-          - $ref: '#/components/schemas/CodeCommitCodeDestination'
-          - description: Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
-        gitHub:
-          allOf:
-          - $ref: '#/components/schemas/GitHubCodeDestination'
-          - description: Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
-      description: The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
-    ProjectSummary:
-      type: object
-      properties:
-        projectId:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project.
-        projectArn:
-          allOf:
-          - $ref: '#/components/schemas/ProjectArn'
-          - description: The Amazon Resource Name (ARN) of the project.
-      description: Information about the metadata for a project.
-    ProjectArn:
-      type: string
-      pattern: ^arn:aws[^:\s]*:codestar:[^:\s]+:[0-9]{12}:project\/[a-z]([a-z0-9|-])+$
-    DisassociateTeamMemberResult:
-      type: object
-      properties: {}
-    ResourceId:
-      type: string
-      pattern: ^arn\:aws\:\S.*\:.*
-      minLength: 11
-    ListResourcesRequest:
-      type: object
-      required:
-      - projectId
-      title: ListResourcesRequest
-      properties:
-        projectId:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The continuation token for the next set of results, if the results cannot be returned in one response.
-        maxResults:
-          allOf:
-          - $ref: '#/components/schemas/MaxResults'
-          - description: The maximum amount of data that can be contained in a single set of results.
-    TeamMemberAlreadyAssociatedException: {}
-    ResourcesResult:
-      type: array
-      items:
-        $ref: '#/components/schemas/Resource'
-    BucketKey:
-      type: string
-    GitHubCodeDestination:
-      type: object
-      required:
-      - name
-      - type
-      - owner
-      - privateRepository
-      - issuesEnabled
-      - token
-      properties:
-        name:
-          allOf:
-          - $ref: '#/components/schemas/RepositoryName'
-          - description: Name of the GitHub repository to be created in AWS CodeStar.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/RepositoryDescription'
-          - description: Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created.
-        type:
-          allOf:
-          - $ref: '#/components/schemas/RepositoryType'
-          - description: The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.
-        owner:
-          allOf:
-          - $ref: '#/components/schemas/RepositoryOwner'
-          - description: The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name.
-        privateRepository:
-          allOf:
-          - $ref: '#/components/schemas/RepositoryIsPrivate'
-          - description: Whether the GitHub repository is to be a private repository.
-        issuesEnabled:
-          allOf:
-          - $ref: '#/components/schemas/RepositoryEnableIssues'
-          - description: Whether to enable issues for the GitHub repository.
-        token:
-          allOf:
-          - $ref: '#/components/schemas/GitHubPersonalToken'
-          - description: The GitHub user's personal access token for the GitHub repository.
-      description: Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
-    DescribeUserProfileResult:
-      type: object
-      required:
-      - userArn
-      - createdTimestamp
-      - lastModifiedTimestamp
-      properties:
-        userArn:
-          allOf:
-          - $ref: '#/components/schemas/UserArn'
-          - description: The Amazon Resource Name (ARN) of the user.
-        displayName:
-          allOf:
-          - $ref: '#/components/schemas/UserProfileDisplayName'
-          - description: The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
-        emailAddress:
-          allOf:
-          - $ref: '#/components/schemas/Email'
-          - description: The email address for the user. Optional.
-        sshPublicKey:
-          allOf:
-          - $ref: '#/components/schemas/SshPublicKey'
-          - description: The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources.
-        createdTimestamp:
-          allOf:
-          - $ref: '#/components/schemas/CreatedTimestamp'
-          - description: The date and time when the user profile was created in AWS CodeStar, in timestamp format.
-        lastModifiedTimestamp:
-          allOf:
-          - $ref: '#/components/schemas/LastModifiedTimestamp'
-          - description: The date and time when the user profile was last modified, in timestamp format.
     UserProfileSummary:
       type: object
       properties:
@@ -2407,6 +1972,102 @@ components:
           - $ref: '#/components/schemas/SshPublicKey'
           - description: The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
       description: Information about a user's profile in AWS CodeStar.
+    TeamMember:
+      type: object
+      required:
+      - userArn
+      - projectRole
+      properties:
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the user in IAM.
+        projectRole:
+          allOf:
+          - $ref: '#/components/schemas/Role'
+          - description: 'The role assigned to the user in the project. Project roles have different levels of access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working with Teams</a> in the <i>AWS CodeStar User Guide</i>. '
+        remoteAccessAllowed:
+          allOf:
+          - $ref: '#/components/schemas/RemoteAccessAllowed'
+          - description: Whether the user is allowed to remotely access project resources using an SSH public/private key pair.
+      description: Information about a team member in a project.
+    UserProfileNotFoundException: {}
+    TeamMemberNotFoundException: {}
+    RemoteAccessAllowed:
+      type: boolean
+    ListProjectsRequest:
+      type: object
+      title: ListProjectsRequest
+      properties:
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The continuation token to be used to return the next set of results, if the results cannot be returned in one response.
+        maxResults:
+          allOf:
+          - $ref: '#/components/schemas/MaxResults'
+          - description: The maximum amount of data that can be contained in a single set of results.
+    TagProjectRequest:
+      type: object
+      required:
+      - id
+      - tags
+      title: TagProjectRequest
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project you want to add a tag to.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/Tags'
+          - description: The tags you want to add to the project.
+    CodeDestination:
+      type: object
+      properties:
+        codeCommit:
+          allOf:
+          - $ref: '#/components/schemas/CodeCommitCodeDestination'
+          - description: Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+        gitHub:
+          allOf:
+          - $ref: '#/components/schemas/GitHubCodeDestination'
+          - description: Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+      description: The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
+    DescribeProjectRequest:
+      type: object
+      required:
+      - id
+      title: DescribeProjectRequest
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project.
+    Tags:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/TagValue'
+    Role:
+      type: string
+      pattern: ^(Owner|Viewer|Contributor)$
+    MaxResults:
+      type: integer
+      minimum: 1
+      maximum: 100
+    AssociateTeamMemberResult:
+      type: object
+      properties:
+        clientRequestToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientRequestToken'
+          - description: The user- or system-generated token from the initial request that can be used to repeat the request.
+    Email:
+      type: string
+      pattern: ^[\w-.+]+@[\w-.+]+$
+      minLength: 3
+      maxLength: 128
+      format: password
     ListUserProfilesResult:
       type: object
       required:
@@ -2420,267 +2081,43 @@ components:
           allOf:
           - $ref: '#/components/schemas/PaginationToken'
           - description: The continuation token to use when requesting the next set of results, if there are more results to be returned.
-    ListResourcesResult:
+    ProjectStatus:
       type: object
+      required:
+      - state
       properties:
-        resources:
+        state:
           allOf:
-          - $ref: '#/components/schemas/ResourcesResult'
-          - description: 'An array of resources associated with the project. '
-        nextToken:
+          - $ref: '#/components/schemas/State'
+          - description: The phase of completion for a project creation or deletion.
+        reason:
           allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The continuation token to use when requesting the next set of results, if there are more results to be returned.
-    TagKey:
+          - $ref: '#/components/schemas/Reason'
+          - description: In the case of a project creation or deletion failure, a reason for the failure.
+      description: An indication of whether a project creation or deletion is failed or successful.
+    ProjectTemplateId:
+      type: string
+      pattern: ^arn:aws[^:\s]{0,5}:codestar:[^:\s]+::project-template(\/(github|codecommit))?\/[a-z0-9-]+$
+      minLength: 1
+    TagValue:
       type: string
       pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
-      minLength: 1
-      maxLength: 128
-    AssociateTeamMemberResult:
+      maxLength: 256
+    UpdateTeamMemberResult:
       type: object
-      properties:
-        clientRequestToken:
-          allOf:
-          - $ref: '#/components/schemas/ClientRequestToken'
-          - description: The user- or system-generated token from the initial request that can be used to repeat the request.
-    ProjectCreationFailedException: {}
-    DeleteProjectRequest:
-      type: object
-      required:
-      - id
-      title: DeleteProjectRequest
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project to be deleted in AWS CodeStar.
-        clientRequestToken:
-          allOf:
-          - $ref: '#/components/schemas/ClientRequestToken'
-          - description: 'A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request. '
-        deleteStack:
-          allOf:
-          - $ref: '#/components/schemas/DeleteStack'
-          - description: Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
-    UpdateProjectRequest:
-      type: object
-      required:
-      - id
-      title: UpdateProjectRequest
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project you want to update.
-        name:
-          allOf:
-          - $ref: '#/components/schemas/ProjectName'
-          - description: The name of the project you want to update.
-        description:
-          allOf:
-          - $ref: '#/components/schemas/ProjectDescription'
-          - description: The description of the project, if any.
-    Email:
-      type: string
-      pattern: ^[\w-.+]+@[\w-.+]+$
-      minLength: 3
-      maxLength: 128
-      format: password
-    UserProfileDisplayName:
-      type: string
-      pattern: ^\S(.*\S)?$
-      minLength: 1
-      maxLength: 64
-      format: password
-    Tags:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/TagValue'
-    CreateUserProfileRequest:
-      type: object
-      required:
-      - userArn
-      - displayName
-      - emailAddress
-      title: CreateUserProfileRequest
       properties:
         userArn:
           allOf:
           - $ref: '#/components/schemas/UserArn'
-          - description: The Amazon Resource Name (ARN) of the user in IAM.
-        displayName:
+          - description: The Amazon Resource Name (ARN) of the user whose team membership attributes were updated.
+        projectRole:
           allOf:
-          - $ref: '#/components/schemas/UserProfileDisplayName'
-          - description: 'The name that will be displayed as the friendly name for the user in AWS CodeStar. '
-        emailAddress:
+          - $ref: '#/components/schemas/Role'
+          - description: The project role granted to the user.
+        remoteAccessAllowed:
           allOf:
-          - $ref: '#/components/schemas/Email'
-          - description: The email address that will be displayed as part of the user's profile in AWS CodeStar.
-        sshPublicKey:
-          allOf:
-          - $ref: '#/components/schemas/SshPublicKey'
-          - description: The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
-    CreateProjectResult:
-      type: object
-      required:
-      - id
-      - arn
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project.
-        arn:
-          allOf:
-          - $ref: '#/components/schemas/ProjectArn'
-          - description: The Amazon Resource Name (ARN) of the created project.
-        clientRequestToken:
-          allOf:
-          - $ref: '#/components/schemas/ClientRequestToken'
-          - description: A user- or system-generated token that identifies the entity that requested project creation.
-        projectTemplateId:
-          allOf:
-          - $ref: '#/components/schemas/ProjectTemplateId'
-          - description: Reserved for future use.
-    Role:
-      type: string
-      pattern: ^(Owner|Viewer|Contributor)$
-    GitHubPersonalToken:
-      type: string
-      minLength: 1
-      format: password
-    DeleteUserProfileResult:
-      type: object
-      required:
-      - userArn
-      properties:
-        userArn:
-          allOf:
-          - $ref: '#/components/schemas/UserArn'
-          - description: The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
-    ProjectDescription:
-      type: string
-      pattern: ^$|^\S(.*\S)?$
-      maxLength: 1024
-      format: password
-    LastModifiedTimestamp:
-      type: string
-      format: date-time
-    TemplateParameterMap:
-      type: object
-      maxProperties: 25
-      additionalProperties:
-        $ref: '#/components/schemas/TemplateParameterValue'
-    ListTagsForProjectResult:
-      type: object
-      properties:
-        tags:
-          allOf:
-          - $ref: '#/components/schemas/Tags'
-          - description: The tags for the project.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Reserved for future use.
-    DescribeProjectRequest:
-      type: object
-      required:
-      - id
-      title: DescribeProjectRequest
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project.
-    SshPublicKey:
-      type: string
-      pattern: ^[\t\r\n\u0020-\u00FF]*$
-      maxLength: 16384
-    ListProjectsRequest:
-      type: object
-      title: ListProjectsRequest
-      properties:
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The continuation token to be used to return the next set of results, if the results cannot be returned in one response.
-        maxResults:
-          allOf:
-          - $ref: '#/components/schemas/MaxResults'
-          - description: The maximum amount of data that can be contained in a single set of results.
-    ListTagsForProjectRequest:
-      type: object
-      required:
-      - id
-      title: ListTagsForProjectRequest
-      properties:
-        id:
-          allOf:
-          - $ref: '#/components/schemas/ProjectId'
-          - description: The ID of the project to get tags for.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: Reserved for future use.
-        maxResults:
-          allOf:
-          - $ref: '#/components/schemas/MaxResults'
-          - description: Reserved for future use.
-    DeleteProjectResult:
-      type: object
-      properties:
-        stackId:
-          allOf:
-          - $ref: '#/components/schemas/StackId'
-          - description: The ID of the primary stack in AWS CloudFormation that will be deleted as part of deleting the project and its resources.
-        projectArn:
-          allOf:
-          - $ref: '#/components/schemas/ProjectArn'
-          - description: The Amazon Resource Name (ARN) of the deleted project.
-    Reason:
-      type: string
-      pattern: ^$|^\S(.*\S)?$
-      maxLength: 1024
-    DescribeUserProfileRequest:
-      type: object
-      required:
-      - userArn
-      title: DescribeUserProfileRequest
-      properties:
-        userArn:
-          allOf:
-          - $ref: '#/components/schemas/UserArn'
-          - description: The Amazon Resource Name (ARN) of the user.
-    RoleArn:
-      type: string
-      minLength: 1
-      maxLength: 1224
-    ProjectNotFoundException: {}
-    S3Location:
-      type: object
-      properties:
-        bucketName:
-          allOf:
-          - $ref: '#/components/schemas/BucketName'
-          - description: The Amazon S3 bucket name where the source code files provided with the project request are stored.
-        bucketKey:
-          allOf:
-          - $ref: '#/components/schemas/BucketKey'
-          - description: The Amazon S3 object key where the source code files provided with the project request are stored.
-      description: The Amazon S3 location where the source code files provided with the project request are stored.
-    ListTeamMembersResult:
-      type: object
-      required:
-      - teamMembers
-      properties:
-        teamMembers:
-          allOf:
-          - $ref: '#/components/schemas/TeamMemberResult'
-          - description: A list of team member objects for the project.
-        nextToken:
-          allOf:
-          - $ref: '#/components/schemas/PaginationToken'
-          - description: The continuation token to use when requesting the next set of results, if there are more results to be returned.
+          - $ref: '#/components/schemas/RemoteAccessAllowed'
+          - description: Whether a team member is allowed to remotely access project resources using the SSH public key associated with the user's profile.
     DescribeProjectResult:
       type: object
       properties:
@@ -2720,23 +2157,165 @@ components:
           allOf:
           - $ref: '#/components/schemas/ProjectStatus'
           - description: The project creation or deletion status.
-    ProjectStatus:
+    BucketKey:
+      type: string
+    UpdateProjectResult:
+      type: object
+      properties: {}
+    CreateUserProfileRequest:
       type: object
       required:
-      - state
+      - userArn
+      - displayName
+      - emailAddress
+      title: CreateUserProfileRequest
       properties:
-        state:
+        userArn:
           allOf:
-          - $ref: '#/components/schemas/State'
-          - description: The phase of completion for a project creation or deletion.
-        reason:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the user in IAM.
+        displayName:
           allOf:
-          - $ref: '#/components/schemas/Reason'
-          - description: In the case of a project creation or deletion failure, a reason for the failure.
-      description: An indication of whether a project creation or deletion is failed or successful.
-    State:
+          - $ref: '#/components/schemas/UserProfileDisplayName'
+          - description: 'The name that will be displayed as the friendly name for the user in AWS CodeStar. '
+        emailAddress:
+          allOf:
+          - $ref: '#/components/schemas/Email'
+          - description: The email address that will be displayed as part of the user's profile in AWS CodeStar.
+        sshPublicKey:
+          allOf:
+          - $ref: '#/components/schemas/SshPublicKey'
+          - description: The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
+    Code:
+      type: object
+      required:
+      - source
+      - destination
+      properties:
+        source:
+          allOf:
+          - $ref: '#/components/schemas/CodeSource'
+          - description: The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
+        destination:
+          allOf:
+          - $ref: '#/components/schemas/CodeDestination'
+          - description: The repository to be created in AWS CodeStar. Valid values are AWS CodeCommit or GitHub. After AWS CodeStar provisions the new repository, the source code files provided with the project request are placed in the repository.
+      description: Location and destination information about the source code files provided with the project request. The source code is uploaded to the new project source repository after project creation.
+    RepositoryEnableIssues:
+      type: boolean
+    RoleArn:
       type: string
-      pattern: ^(CreateInProgress|CreateComplete|CreateFailed|DeleteComplete|DeleteFailed|DeleteInProgress|UpdateComplete|UpdateInProgress|UpdateFailed|Unknown)$
+      minLength: 1
+      maxLength: 1224
+    TemplateParameterValue:
+      type: string
+      pattern: ^\S(.*\S)?$
+      minLength: 1
+      maxLength: 100
+      format: password
+    ProjectDescription:
+      type: string
+      pattern: ^$|^\S(.*\S)?$
+      maxLength: 1024
+      format: password
+    RepositoryDescription:
+      type: string
+      pattern: ^\S(.*\S)?$
+      minLength: 1
+      maxLength: 1000
+    S3Location:
+      type: object
+      properties:
+        bucketName:
+          allOf:
+          - $ref: '#/components/schemas/BucketName'
+          - description: The Amazon S3 bucket name where the source code files provided with the project request are stored.
+        bucketKey:
+          allOf:
+          - $ref: '#/components/schemas/BucketKey'
+          - description: The Amazon S3 object key where the source code files provided with the project request are stored.
+      description: The Amazon S3 location where the source code files provided with the project request are stored.
+    CreateUserProfileResult:
+      type: object
+      required:
+      - userArn
+      properties:
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the user in IAM.
+        displayName:
+          allOf:
+          - $ref: '#/components/schemas/UserProfileDisplayName'
+          - description: The name that is displayed as the friendly name for the user in AWS CodeStar.
+        emailAddress:
+          allOf:
+          - $ref: '#/components/schemas/Email'
+          - description: The email address that is displayed as part of the user's profile in AWS CodeStar.
+        sshPublicKey:
+          allOf:
+          - $ref: '#/components/schemas/SshPublicKey'
+          - description: The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources.
+        createdTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTimestamp'
+          - description: The date the user profile was created, in timestamp format.
+        lastModifiedTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/LastModifiedTimestamp'
+          - description: The date the user profile was last modified, in timestamp format.
+    ProjectNotFoundException: {}
+    CodeCommitCodeDestination:
+      type: object
+      required:
+      - name
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryName'
+          - description: The name of the AWS CodeCommit repository to be created in AWS CodeStar.
+      description: Information about the AWS CodeCommit repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+    CodeSource:
+      type: object
+      required:
+      - s3
+      properties:
+        s3:
+          allOf:
+          - $ref: '#/components/schemas/S3Location'
+          - description: 'Information about the Amazon S3 location where the source code files provided with the project request are stored. '
+      description: The location where the source code files provided with the project request are stored. AWS CodeStar retrieves the files during project creation.
+    ProjectId:
+      type: string
+      pattern: ^[a-z][a-z0-9-]+$
+      minLength: 2
+      maxLength: 15
+    CreateProjectResult:
+      type: object
+      required:
+      - id
+      - arn
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project.
+        arn:
+          allOf:
+          - $ref: '#/components/schemas/ProjectArn'
+          - description: The Amazon Resource Name (ARN) of the created project.
+        clientRequestToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientRequestToken'
+          - description: A user- or system-generated token that identifies the entity that requested project creation.
+        projectTemplateId:
+          allOf:
+          - $ref: '#/components/schemas/ProjectTemplateId'
+          - description: Reserved for future use.
+    BucketName:
+      type: string
+      minLength: 3
+      maxLength: 63
     AssociateTeamMemberRequest:
       type: object
       required:
@@ -2765,11 +2344,438 @@ components:
           allOf:
           - $ref: '#/components/schemas/RemoteAccessAllowed'
           - description: Whether the team member is allowed to use an SSH public/private key pair to remotely access project resources, for example Amazon EC2 instances.
-    RepositoryIsPrivate:
-      type: boolean
+    InvalidNextTokenException: {}
+    ListUserProfilesRequest:
+      type: object
+      title: ListUserProfilesRequest
+      properties:
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The continuation token for the next set of results, if the results cannot be returned in one response.
+        maxResults:
+          allOf:
+          - $ref: '#/components/schemas/MaxResults'
+          - description: The maximum number of results to return in a response.
+    ProjectArn:
+      type: string
+      pattern: ^arn:aws[^:\s]*:codestar:[^:\s]+:[0-9]{12}:project\/[a-z]([a-z0-9|-])+$
+    SourceCode:
+      type: array
+      items:
+        $ref: '#/components/schemas/Code'
+    UserArn:
+      type: string
+      pattern: ^arn:aws:iam::\d{12}:user(?:(\u002F)|(\u002F[\u0021-\u007E]+\u002F))[\w+=,.@-]+$
+      minLength: 32
+      maxLength: 95
+    UpdateProjectRequest:
+      type: object
+      required:
+      - id
+      title: UpdateProjectRequest
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project you want to update.
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ProjectName'
+          - description: The name of the project you want to update.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/ProjectDescription'
+          - description: The description of the project, if any.
+    ProjectCreationFailedException: {}
+    State:
+      type: string
+      pattern: ^(CreateInProgress|CreateComplete|CreateFailed|DeleteComplete|DeleteFailed|DeleteInProgress|UpdateComplete|UpdateInProgress|UpdateFailed|Unknown)$
+    ListResourcesRequest:
+      type: object
+      required:
+      - projectId
+      title: ListResourcesRequest
+      properties:
+        projectId:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The continuation token for the next set of results, if the results cannot be returned in one response.
+        maxResults:
+          allOf:
+          - $ref: '#/components/schemas/MaxResults'
+          - description: The maximum amount of data that can be contained in a single set of results.
+    UserProfileAlreadyExistsException: {}
+    LastModifiedTimestamp:
+      type: string
+      format: date-time
+    DeleteProjectRequest:
+      type: object
+      required:
+      - id
+      title: DeleteProjectRequest
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project to be deleted in AWS CodeStar.
+        clientRequestToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientRequestToken'
+          - description: 'A user- or system-generated token that identifies the entity that requested project deletion. This token can be used to repeat the request. '
+        deleteStack:
+          allOf:
+          - $ref: '#/components/schemas/DeleteStack'
+          - description: Whether to send a delete request for the primary stack in AWS CloudFormation originally used to generate the project and its resources. This option will delete all AWS resources for the project (except for any buckets in Amazon S3) as well as deleting the project itself. Recommended for most use cases.
+    UserProfileDisplayName:
+      type: string
+      pattern: ^\S(.*\S)?$
+      minLength: 1
+      maxLength: 64
+      format: password
+    GitHubCodeDestination:
+      type: object
+      required:
+      - name
+      - type
+      - owner
+      - privateRepository
+      - issuesEnabled
+      - token
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryName'
+          - description: Name of the GitHub repository to be created in AWS CodeStar.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryDescription'
+          - description: Description for the GitHub repository to be created in AWS CodeStar. This description displays in GitHub after the repository is created.
+        type:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryType'
+          - description: The type of GitHub repository to be created in AWS CodeStar. Valid values are User or Organization.
+        owner:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryOwner'
+          - description: The GitHub username for the owner of the GitHub repository to be created in AWS CodeStar. If this repository should be owned by a GitHub organization, provide its name.
+        privateRepository:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryIsPrivate'
+          - description: Whether the GitHub repository is to be a private repository.
+        issuesEnabled:
+          allOf:
+          - $ref: '#/components/schemas/RepositoryEnableIssues'
+          - description: Whether to enable issues for the GitHub repository.
+        token:
+          allOf:
+          - $ref: '#/components/schemas/GitHubPersonalToken'
+          - description: The GitHub user's personal access token for the GitHub repository.
+      description: Information about the GitHub repository to be created in AWS CodeStar. This is where the source code files provided with the project request will be uploaded after project creation.
+    StackId:
+      type: string
+      pattern: ^arn:aws[^:\s]*:cloudformation:[^:\s]+:[0-9]{12}:stack\/[^:\s]+\/[^:\s]+$
+    ProjectSummary:
+      type: object
+      properties:
+        projectId:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project.
+        projectArn:
+          allOf:
+          - $ref: '#/components/schemas/ProjectArn'
+          - description: The Amazon Resource Name (ARN) of the project.
+      description: Information about the metadata for a project.
+    ConcurrentModificationException: {}
+    RepositoryType:
+      type: string
+      pattern: ^(user|organization|User|Organization)$
+    PaginationToken:
+      type: string
+      pattern: ^[\w/+=]+$
+      minLength: 1
+      maxLength: 512
+    TemplateParameterMap:
+      type: object
+      maxProperties: 25
+      additionalProperties:
+        $ref: '#/components/schemas/TemplateParameterValue'
+    DescribeUserProfileResult:
+      type: object
+      required:
+      - userArn
+      - createdTimestamp
+      - lastModifiedTimestamp
+      properties:
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the user.
+        displayName:
+          allOf:
+          - $ref: '#/components/schemas/UserProfileDisplayName'
+          - description: The display name shown for the user in AWS CodeStar projects. For example, this could be set to both first and last name ("Mary Major") or a single name ("Mary"). The display name is also used to generate the initial icon associated with the user in AWS CodeStar projects. If spaces are included in the display name, the first character that appears after the space will be used as the second character in the user initial icon. The initial icon displays a maximum of two characters, so a display name with more than one space (for example "Mary Jane Major") would generate an initial icon using the first character and the first character after the space ("MJ", not "MM").
+        emailAddress:
+          allOf:
+          - $ref: '#/components/schemas/Email'
+          - description: The email address for the user. Optional.
+        sshPublicKey:
+          allOf:
+          - $ref: '#/components/schemas/SshPublicKey'
+          - description: The SSH public key associated with the user. This SSH public key is associated with the user profile, and can be used in conjunction with the associated private key for access to project resources, such as Amazon EC2 instances, if a project owner grants remote access to those resources.
+        createdTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTimestamp'
+          - description: The date and time when the user profile was created in AWS CodeStar, in timestamp format.
+        lastModifiedTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/LastModifiedTimestamp'
+          - description: The date and time when the user profile was last modified, in timestamp format.
+    ClientRequestToken:
+      type: string
+      pattern: ^[\w:/-]+$
+      minLength: 1
+      maxLength: 256
+    ProjectsList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ProjectSummary'
+    CreateProjectRequest:
+      type: object
+      required:
+      - name
+      - id
+      title: CreateProjectRequest
+      properties:
+        name:
+          allOf:
+          - $ref: '#/components/schemas/ProjectName'
+          - description: The display name for the project to be created in AWS CodeStar.
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project to be created in AWS CodeStar.
+        description:
+          allOf:
+          - $ref: '#/components/schemas/ProjectDescription'
+          - description: The description of the project, if any.
+        clientRequestToken:
+          allOf:
+          - $ref: '#/components/schemas/ClientRequestToken'
+          - description: A user- or system-generated token that identifies the entity that requested project creation. This token can be used to repeat the request.
+        sourceCode:
+          allOf:
+          - $ref: '#/components/schemas/SourceCode'
+          - description: A list of the Code objects submitted with the project request. If this parameter is specified, the request must also include the toolchain parameter.
+        toolchain:
+          allOf:
+          - $ref: '#/components/schemas/Toolchain'
+          - description: The name of the toolchain template file submitted with the project request. If this parameter is specified, the request must also include the sourceCode parameter.
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/Tags'
+          - description: The tags created for the project.
+    TeamMemberAlreadyAssociatedException: {}
+    RepositoryName:
+      type: string
+      pattern: ^\S[\w.-]*$
+      minLength: 1
+      maxLength: 100
+    ListTagsForProjectResult:
+      type: object
+      properties:
+        tags:
+          allOf:
+          - $ref: '#/components/schemas/Tags'
+          - description: The tags for the project.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: Reserved for future use.
+    ListResourcesResult:
+      type: object
+      properties:
+        resources:
+          allOf:
+          - $ref: '#/components/schemas/ResourcesResult'
+          - description: 'An array of resources associated with the project. '
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The continuation token to use when requesting the next set of results, if there are more results to be returned.
+    UntagProjectResult:
+      type: object
+      properties: {}
+    Resource:
+      type: object
+      required:
+      - id
+      properties:
+        id:
+          allOf:
+          - $ref: '#/components/schemas/ResourceId'
+          - description: The Amazon Resource Name (ARN) of the resource.
+      description: Information about a resource for a project.
+    TeamMemberResult:
+      type: array
+      items:
+        $ref: '#/components/schemas/TeamMember'
+    GitHubPersonalToken:
+      type: string
+      minLength: 1
+      format: password
+    DeleteUserProfileResult:
+      type: object
+      required:
+      - userArn
+      properties:
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
+    ValidationException: {}
+    ProjectName:
+      type: string
+      pattern: ^\S(.*\S)?$
+      minLength: 1
+      maxLength: 100
+      format: password
+    ListProjectsResult:
+      type: object
+      required:
+      - projects
+      properties:
+        projects:
+          allOf:
+          - $ref: '#/components/schemas/ProjectsList'
+          - description: A list of projects.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The continuation token to use when requesting the next set of results, if there are more results to be returned.
+    LimitExceededException: {}
+    ProjectConfigurationException: {}
+    SshPublicKey:
+      type: string
+      pattern: ^[\t\r\n\u0020-\u00FF]*$
+      maxLength: 16384
+    UpdateUserProfileResult:
+      type: object
+      required:
+      - userArn
+      properties:
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The Amazon Resource Name (ARN) of the user in IAM.
+        displayName:
+          allOf:
+          - $ref: '#/components/schemas/UserProfileDisplayName'
+          - description: The name that is displayed as the friendly name for the user in AWS CodeStar.
+        emailAddress:
+          allOf:
+          - $ref: '#/components/schemas/Email'
+          - description: The email address that is displayed as part of the user's profile in AWS CodeStar.
+        sshPublicKey:
+          allOf:
+          - $ref: '#/components/schemas/SshPublicKey'
+          - description: The SSH public key associated with the user in AWS CodeStar. This is the public portion of the public/private keypair the user can use to access project resources if a project owner allows the user remote access to those resources.
+        createdTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/CreatedTimestamp'
+          - description: The date the user profile was created, in timestamp format.
+        lastModifiedTimestamp:
+          allOf:
+          - $ref: '#/components/schemas/LastModifiedTimestamp'
+          - description: The date the user profile was last modified, in timestamp format.
+    DeleteProjectResult:
+      type: object
+      properties:
+        stackId:
+          allOf:
+          - $ref: '#/components/schemas/StackId'
+          - description: The ID of the primary stack in AWS CloudFormation that will be deleted as part of deleting the project and its resources.
+        projectArn:
+          allOf:
+          - $ref: '#/components/schemas/ProjectArn'
+          - description: The Amazon Resource Name (ARN) of the deleted project.
+    TagKey:
+      type: string
+      pattern: ^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$
+      minLength: 1
+      maxLength: 128
+    Toolchain:
+      type: object
+      required:
+      - source
+      properties:
+        source:
+          allOf:
+          - $ref: '#/components/schemas/ToolchainSource'
+          - description: The Amazon S3 location where the toolchain template file provided with the project request is stored. AWS CodeStar retrieves the file during project creation.
+        roleArn:
+          allOf:
+          - $ref: '#/components/schemas/RoleArn'
+          - description: The service role ARN for AWS CodeStar to use for the toolchain template during stack provisioning.
+        stackParameters:
+          allOf:
+          - $ref: '#/components/schemas/TemplateParameterMap'
+          - description: The list of parameter overrides to be passed into the toolchain template during stack provisioning, if any.
+      description: The toolchain template file provided with the project request. AWS CodeStar uses the template to provision the toolchain stack in AWS CloudFormation.
+    ListTeamMembersRequest:
+      type: object
+      required:
+      - projectId
+      title: ListTeamMembersRequest
+      properties:
+        projectId:
+          allOf:
+          - $ref: '#/components/schemas/ProjectId'
+          - description: The ID of the project for which you want to list team members.
+        nextToken:
+          allOf:
+          - $ref: '#/components/schemas/PaginationToken'
+          - description: The continuation token for the next set of results, if the results cannot be returned in one response.
+        maxResults:
+          allOf:
+          - $ref: '#/components/schemas/MaxResults'
+          - description: The maximum number of team members you want returned in a response.
+    UpdateUserProfileRequest:
+      type: object
+      required:
+      - userArn
+      title: UpdateUserProfileRequest
+      properties:
+        userArn:
+          allOf:
+          - $ref: '#/components/schemas/UserArn'
+          - description: The name that will be displayed as the friendly name for the user in AWS CodeStar.
+        displayName:
+          allOf:
+          - $ref: '#/components/schemas/UserProfileDisplayName'
+          - description: The name that is displayed as the friendly name for the user in AWS CodeStar.
+        emailAddress:
+          allOf:
+          - $ref: '#/components/schemas/Email'
+          - description: The email address that is displayed as part of the user's profile in AWS CodeStar.
+        sshPublicKey:
+          allOf:
+          - $ref: '#/components/schemas/SshPublicKey'
+          - description: The SSH public key associated with the user in AWS CodeStar. If a project owner allows the user remote access to project resources, this public key will be used along with the user's private key for SSH access.
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
       in: header
       schema:
         type: string
@@ -2786,26 +2792,20 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
